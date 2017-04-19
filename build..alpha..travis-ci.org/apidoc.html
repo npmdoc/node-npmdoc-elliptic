@@ -1,0 +1,5076 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/indutny/elliptic"
+
+    >elliptic (v6.4.0)</a>
+</h1>
+<h4>EC cryptography</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic">module elliptic</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base">
+            function <span class="apidocSignatureSpan">elliptic.</span>curve.base
+            <span class="apidocSignatureSpan">(type, conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.edwards">
+            function <span class="apidocSignatureSpan">elliptic.</span>curve.edwards
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.mont">
+            function <span class="apidocSignatureSpan">elliptic.</span>curve.mont
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short">
+            function <span class="apidocSignatureSpan">elliptic.</span>curve.short
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.ec">
+            function <span class="apidocSignatureSpan">elliptic.</span>ec
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa">
+            function <span class="apidocSignatureSpan">elliptic.</span>eddsa
+            <span class="apidocSignatureSpan">(curve)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.rand">
+            function <span class="apidocSignatureSpan">elliptic.</span>rand
+            <span class="apidocSignatureSpan">(len)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.rand.Rand">
+            function <span class="apidocSignatureSpan">elliptic.</span>rand.Rand
+            <span class="apidocSignatureSpan">(rand)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.assert">
+            function <span class="apidocSignatureSpan">elliptic.</span>utils.assert
+            <span class="apidocSignatureSpan">(val, msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curve</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curve.base.BasePoint.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curve.base.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curve.edwards.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curve.mont.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curve.short.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curves</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curves.curve25519</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curves.curve25519.hash.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curves.ed25519</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curves.p192</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curves.p224</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curves.p256</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curves.p384</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curves.p384.hash.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curves.p521</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curves.p521.hash.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>curves.secp256k1</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>ec.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>eddsa.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>rand.Rand.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">elliptic.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curve">module elliptic.curve</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base">
+            function <span class="apidocSignatureSpan">elliptic.curve.</span>base
+            <span class="apidocSignatureSpan">(type, conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.edwards">
+            function <span class="apidocSignatureSpan">elliptic.curve.</span>edwards
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.mont">
+            function <span class="apidocSignatureSpan">elliptic.curve.</span>mont
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short">
+            function <span class="apidocSignatureSpan">elliptic.curve.</span>short
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curve.base">module elliptic.curve.base</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.base">
+            function <span class="apidocSignatureSpan">elliptic.curve.</span>base
+            <span class="apidocSignatureSpan">(type, conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.BasePoint">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.</span>BasePoint
+            <span class="apidocSignatureSpan">(curve, type)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curve.base.BasePoint.prototype">module elliptic.curve.base.BasePoint.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.BasePoint.prototype._encode">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>_encode
+            <span class="apidocSignatureSpan">(compact)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.BasePoint.prototype._getBeta">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>_getBeta
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.BasePoint.prototype._getDoubles">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>_getDoubles
+            <span class="apidocSignatureSpan">(step, power)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.BasePoint.prototype._getNAFPoints">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>_getNAFPoints
+            <span class="apidocSignatureSpan">(wnd)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.BasePoint.prototype._hasDoubles">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>_hasDoubles
+            <span class="apidocSignatureSpan">(k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.BasePoint.prototype.dblp">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>dblp
+            <span class="apidocSignatureSpan">(k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.BasePoint.prototype.encode">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>encode
+            <span class="apidocSignatureSpan">(enc, compact)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.BasePoint.prototype.encodeCompressed">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>encodeCompressed
+            <span class="apidocSignatureSpan">(enc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.BasePoint.prototype.eq">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>eq
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.BasePoint.prototype.precompute">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>precompute
+            <span class="apidocSignatureSpan">(power)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.BasePoint.prototype.validate">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>validate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curve.base.prototype">module elliptic.curve.base.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.prototype._fixedNafMul">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.prototype.</span>_fixedNafMul
+            <span class="apidocSignatureSpan">(p, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.prototype._wnafMul">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.prototype.</span>_wnafMul
+            <span class="apidocSignatureSpan">(p, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.prototype._wnafMulAdd">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.prototype.</span>_wnafMulAdd
+            <span class="apidocSignatureSpan">(defW, points, coeffs, len, jacobianResult)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.prototype.decodePoint">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.prototype.</span>decodePoint
+            <span class="apidocSignatureSpan">(bytes, enc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.prototype.point">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.prototype.</span>point
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.base.prototype.validate">
+            function <span class="apidocSignatureSpan">elliptic.curve.base.prototype.</span>validate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curve.edwards">module elliptic.curve.edwards</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.edwards.edwards">
+            function <span class="apidocSignatureSpan">elliptic.curve.</span>edwards
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.edwards.super_">
+            function <span class="apidocSignatureSpan">elliptic.curve.edwards.</span>super_
+            <span class="apidocSignatureSpan">(type, conf)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curve.edwards.prototype">module elliptic.curve.edwards.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.edwards.prototype._mulA">
+            function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>_mulA
+            <span class="apidocSignatureSpan">(num)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.edwards.prototype._mulC">
+            function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>_mulC
+            <span class="apidocSignatureSpan">(num)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.edwards.prototype.jpoint">
+            function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>jpoint
+            <span class="apidocSignatureSpan">(x, y, z, t)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.edwards.prototype.point">
+            function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>point
+            <span class="apidocSignatureSpan">(x, y, z, t)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.edwards.prototype.pointFromJSON">
+            function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>pointFromJSON
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.edwards.prototype.pointFromX">
+            function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>pointFromX
+            <span class="apidocSignatureSpan">(x, odd)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.edwards.prototype.pointFromY">
+            function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>pointFromY
+            <span class="apidocSignatureSpan">(y, odd)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.edwards.prototype.validate">
+            function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>validate
+            <span class="apidocSignatureSpan">(point)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curve.mont">module elliptic.curve.mont</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.mont.mont">
+            function <span class="apidocSignatureSpan">elliptic.curve.</span>mont
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.mont.super_">
+            function <span class="apidocSignatureSpan">elliptic.curve.mont.</span>super_
+            <span class="apidocSignatureSpan">(type, conf)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curve.mont.prototype">module elliptic.curve.mont.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.mont.prototype.decodePoint">
+            function <span class="apidocSignatureSpan">elliptic.curve.mont.prototype.</span>decodePoint
+            <span class="apidocSignatureSpan">(bytes, enc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.mont.prototype.point">
+            function <span class="apidocSignatureSpan">elliptic.curve.mont.prototype.</span>point
+            <span class="apidocSignatureSpan">(x, z)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.mont.prototype.pointFromJSON">
+            function <span class="apidocSignatureSpan">elliptic.curve.mont.prototype.</span>pointFromJSON
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.mont.prototype.validate">
+            function <span class="apidocSignatureSpan">elliptic.curve.mont.prototype.</span>validate
+            <span class="apidocSignatureSpan">(point)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curve.short">module elliptic.curve.short</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short.short">
+            function <span class="apidocSignatureSpan">elliptic.curve.</span>short
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short.super_">
+            function <span class="apidocSignatureSpan">elliptic.curve.short.</span>super_
+            <span class="apidocSignatureSpan">(type, conf)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curve.short.prototype">module elliptic.curve.short.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short.prototype._endoSplit">
+            function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>_endoSplit
+            <span class="apidocSignatureSpan">(k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short.prototype._endoWnafMulAdd">
+            function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>_endoWnafMulAdd
+            <span class="apidocSignatureSpan">(points, coeffs, jacobianResult)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short.prototype._getEndoBasis">
+            function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>_getEndoBasis
+            <span class="apidocSignatureSpan">(lambda)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short.prototype._getEndoRoots">
+            function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>_getEndoRoots
+            <span class="apidocSignatureSpan">(num)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short.prototype._getEndomorphism">
+            function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>_getEndomorphism
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short.prototype.jpoint">
+            function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>jpoint
+            <span class="apidocSignatureSpan">(x, y, z)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short.prototype.point">
+            function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>point
+            <span class="apidocSignatureSpan">(x, y, isRed)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short.prototype.pointFromJSON">
+            function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>pointFromJSON
+            <span class="apidocSignatureSpan">(obj, red)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short.prototype.pointFromX">
+            function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>pointFromX
+            <span class="apidocSignatureSpan">(x, odd)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curve.short.prototype.validate">
+            function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>validate
+            <span class="apidocSignatureSpan">(point)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curves">module elliptic.curves</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.PresetCurve">
+            function <span class="apidocSignatureSpan">elliptic.curves.</span>PresetCurve
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.</span>curve25519</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.</span>ed25519</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.</span>p192</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.</span>p224</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.</span>p256</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.</span>p384</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.</span>p521</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.</span>secp256k1</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curves.curve25519">module elliptic.curves.curve25519</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.curve25519.hash">
+            function <span class="apidocSignatureSpan">elliptic.curves.curve25519.</span>hash
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.curve25519.</span>curve</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.curve25519.</span>g</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.curve25519.</span>n</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curves.curve25519.hash.prototype">module elliptic.curves.curve25519.hash.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.curve25519.hash.prototype._digest">
+            function <span class="apidocSignatureSpan">elliptic.curves.curve25519.hash.prototype.</span>_digest
+            <span class="apidocSignatureSpan">(enc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.curve25519.hash.prototype._update">
+            function <span class="apidocSignatureSpan">elliptic.curves.curve25519.hash.prototype.</span>_update
+            <span class="apidocSignatureSpan">(msg, start)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curves.ed25519">module elliptic.curves.ed25519</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.ed25519.hash">
+            function <span class="apidocSignatureSpan">elliptic.curves.ed25519.</span>hash
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.ed25519.</span>curve</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.ed25519.</span>g</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.ed25519.</span>n</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curves.p192">module elliptic.curves.p192</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.p192.hash">
+            function <span class="apidocSignatureSpan">elliptic.curves.p192.</span>hash
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p192.</span>curve</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p192.</span>g</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p192.</span>n</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curves.p224">module elliptic.curves.p224</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.p224.hash">
+            function <span class="apidocSignatureSpan">elliptic.curves.p224.</span>hash
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p224.</span>curve</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p224.</span>g</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p224.</span>n</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curves.p256">module elliptic.curves.p256</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.p256.hash">
+            function <span class="apidocSignatureSpan">elliptic.curves.p256.</span>hash
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p256.</span>curve</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p256.</span>g</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p256.</span>n</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curves.p384">module elliptic.curves.p384</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.p384.hash">
+            function <span class="apidocSignatureSpan">elliptic.curves.p384.</span>hash
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p384.</span>curve</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p384.</span>g</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p384.</span>n</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curves.p384.hash.prototype">module elliptic.curves.p384.hash.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.p384.hash.prototype._digest">
+            function <span class="apidocSignatureSpan">elliptic.curves.p384.hash.prototype.</span>_digest
+            <span class="apidocSignatureSpan">(enc)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curves.p521">module elliptic.curves.p521</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.p521.hash">
+            function <span class="apidocSignatureSpan">elliptic.curves.p521.</span>hash
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p521.</span>curve</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p521.</span>g</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.p521.</span>n</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curves.p521.hash.prototype">module elliptic.curves.p521.hash.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.p521.hash.prototype._digest">
+            function <span class="apidocSignatureSpan">elliptic.curves.p521.hash.prototype.</span>_digest
+            <span class="apidocSignatureSpan">(enc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.p521.hash.prototype._prepareBlock">
+            function <span class="apidocSignatureSpan">elliptic.curves.p521.hash.prototype.</span>_prepareBlock
+            <span class="apidocSignatureSpan">(msg, start)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.p521.hash.prototype._update">
+            function <span class="apidocSignatureSpan">elliptic.curves.p521.hash.prototype.</span>_update
+            <span class="apidocSignatureSpan">(msg, start)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.curves.secp256k1">module elliptic.curves.secp256k1</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.curves.secp256k1.hash">
+            function <span class="apidocSignatureSpan">elliptic.curves.secp256k1.</span>hash
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.secp256k1.</span>curve</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.secp256k1.</span>g</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">elliptic.curves.secp256k1.</span>n</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.ec">module elliptic.ec</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.ec.ec">
+            function <span class="apidocSignatureSpan">elliptic.</span>ec
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.ec.prototype">module elliptic.ec.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.ec.prototype._truncateToN">
+            function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>_truncateToN
+            <span class="apidocSignatureSpan">(msg, truncOnly)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.ec.prototype.genKeyPair">
+            function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>genKeyPair
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.ec.prototype.getKeyRecoveryParam">
+            function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>getKeyRecoveryParam
+            <span class="apidocSignatureSpan">(e, signature, Q, enc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.ec.prototype.keyFromPrivate">
+            function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>keyFromPrivate
+            <span class="apidocSignatureSpan">(priv, enc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.ec.prototype.keyFromPublic">
+            function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>keyFromPublic
+            <span class="apidocSignatureSpan">(pub, enc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.ec.prototype.keyPair">
+            function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>keyPair
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.ec.prototype.recoverPubKey">
+            function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>recoverPubKey
+            <span class="apidocSignatureSpan">(msg, signature, j, enc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.ec.prototype.sign">
+            function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>sign
+            <span class="apidocSignatureSpan">(msg, key, enc, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.ec.prototype.verify">
+            function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>verify
+            <span class="apidocSignatureSpan">(msg, signature, key, enc)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.eddsa">module elliptic.eddsa</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa.eddsa">
+            function <span class="apidocSignatureSpan">elliptic.</span>eddsa
+            <span class="apidocSignatureSpan">(curve)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.eddsa.prototype">module elliptic.eddsa.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa.prototype.decodeInt">
+            function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>decodeInt
+            <span class="apidocSignatureSpan">(bytes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa.prototype.decodePoint">
+            function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>decodePoint
+            <span class="apidocSignatureSpan">(bytes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa.prototype.encodeInt">
+            function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>encodeInt
+            <span class="apidocSignatureSpan">(num)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa.prototype.encodePoint">
+            function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>encodePoint
+            <span class="apidocSignatureSpan">(point)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa.prototype.hashInt">
+            function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>hashInt
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa.prototype.isPoint">
+            function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>isPoint
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa.prototype.keyFromPublic">
+            function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>keyFromPublic
+            <span class="apidocSignatureSpan">(pub)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa.prototype.keyFromSecret">
+            function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>keyFromSecret
+            <span class="apidocSignatureSpan">(secret)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa.prototype.makeSignature">
+            function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>makeSignature
+            <span class="apidocSignatureSpan">(sig)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa.prototype.sign">
+            function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>sign
+            <span class="apidocSignatureSpan">(message, secret)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.eddsa.prototype.verify">
+            function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>verify
+            <span class="apidocSignatureSpan">(message, sig, pub)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.rand">module elliptic.rand</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.rand.rand">
+            function <span class="apidocSignatureSpan">elliptic.</span>rand
+            <span class="apidocSignatureSpan">(len)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.rand.Rand">
+            function <span class="apidocSignatureSpan">elliptic.rand.</span>Rand
+            <span class="apidocSignatureSpan">(rand)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.rand.Rand">module elliptic.rand.Rand</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.rand.Rand.Rand">
+            function <span class="apidocSignatureSpan">elliptic.rand.</span>Rand
+            <span class="apidocSignatureSpan">(rand)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.rand.Rand.prototype">module elliptic.rand.Rand.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.rand.Rand.prototype._rand">
+            function <span class="apidocSignatureSpan">elliptic.rand.Rand.prototype.</span>_rand
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.rand.Rand.prototype.generate">
+            function <span class="apidocSignatureSpan">elliptic.rand.Rand.prototype.</span>generate
+            <span class="apidocSignatureSpan">(len)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.utils">module elliptic.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.assert">
+            function <span class="apidocSignatureSpan">elliptic.utils.</span>assert
+            <span class="apidocSignatureSpan">(val, msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.cachedProperty">
+            function <span class="apidocSignatureSpan">elliptic.utils.</span>cachedProperty
+            <span class="apidocSignatureSpan">(obj, name, computer)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.encode">
+            function <span class="apidocSignatureSpan">elliptic.utils.</span>encode
+            <span class="apidocSignatureSpan">(arr, enc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.getJSF">
+            function <span class="apidocSignatureSpan">elliptic.utils.</span>getJSF
+            <span class="apidocSignatureSpan">(k1, k2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.getNAF">
+            function <span class="apidocSignatureSpan">elliptic.utils.</span>getNAF
+            <span class="apidocSignatureSpan">(num, w)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.intFromLE">
+            function <span class="apidocSignatureSpan">elliptic.utils.</span>intFromLE
+            <span class="apidocSignatureSpan">(bytes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.parseBytes">
+            function <span class="apidocSignatureSpan">elliptic.utils.</span>parseBytes
+            <span class="apidocSignatureSpan">(bytes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.toArray">
+            function <span class="apidocSignatureSpan">elliptic.utils.</span>toArray
+            <span class="apidocSignatureSpan">(msg, enc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.toHex">
+            function <span class="apidocSignatureSpan">elliptic.utils.</span>toHex
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.zero2">
+            function <span class="apidocSignatureSpan">elliptic.utils.</span>zero2
+            <span class="apidocSignatureSpan">(word)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.elliptic.utils.assert">module elliptic.utils.assert</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.assert.assert">
+            function <span class="apidocSignatureSpan">elliptic.utils.</span>assert
+            <span class="apidocSignatureSpan">(val, msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.elliptic.utils.assert.equal">
+            function <span class="apidocSignatureSpan">elliptic.utils.assert.</span>equal
+            <span class="apidocSignatureSpan">(l, r, msg)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic" id="apidoc.module.elliptic">module elliptic</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base" id="apidoc.element.elliptic.curve.base">
+        function <span class="apidocSignatureSpan">elliptic.</span>curve.base
+        <span class="apidocSignatureSpan">(type, conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BaseCurve(type, conf) {
+  this.type = type;
+  this.p = new BN(conf.p, 16);
+
+  // Use Montgomery, when there is no fast reduction for the prime
+  this.red = conf.prime ? BN.red(conf.prime) : BN.mont(this.p);
+
+  // Useful for many curves
+  this.zero = new BN(0).toRed(this.red);
+  this.one = new BN(1).toRed(this.red);
+  this.two = new BN(2).toRed(this.red);
+
+  // Curve configuration, optional
+  this.n = conf.n &#x26;&#x26; new BN(conf.n, 16);
+  this.g = conf.g &#x26;&#x26; this.pointFromJSON(conf.g, conf.gRed);
+
+  // Temporary arrays
+  this._wnafT1 = new Array(4);
+  this._wnafT2 = new Array(4);
+  this._wnafT3 = new Array(4);
+  this._wnafT4 = new Array(4);
+
+  // Generalized Greg Maxwell&#x27;s trick
+  var adjustCount = this.n &#x26;&#x26; this.p.div(this.n);
+  if (!adjustCount || adjustCount.cmpn(100) &#x3e; 0) {
+    this.redN = null;
+  } else {
+    this._maxwellTrick = true;
+    this.redN = this.n.toRed(this.red);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.edwards" id="apidoc.element.elliptic.curve.edwards">
+        function <span class="apidocSignatureSpan">elliptic.</span>curve.edwards
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EdwardsCurve(conf) {
+  // NOTE: Important as we are creating point in Base.call()
+  this.twisted = (conf.a | 0) !== 1;
+  this.mOneA = this.twisted &#x26;&#x26; (conf.a | 0) === -1;
+  this.extended = this.mOneA;
+
+  Base.call(this, &#x27;edwards&#x27;, conf);
+
+  this.a = new BN(conf.a, 16).umod(this.red.m);
+  this.a = this.a.toRed(this.red);
+  this.c = new BN(conf.c, 16).toRed(this.red);
+  this.c2 = this.c.redSqr();
+  this.d = new BN(conf.d, 16).toRed(this.red);
+  this.dd = this.d.redAdd(this.d);
+
+  assert(!this.twisted || this.c.fromRed().cmpn(1) === 0);
+  this.oneC = (conf.c | 0) === 1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.mont" id="apidoc.element.elliptic.curve.mont">
+        function <span class="apidocSignatureSpan">elliptic.</span>curve.mont
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MontCurve(conf) {
+  Base.call(this, &#x27;mont&#x27;, conf);
+
+  this.a = new BN(conf.a, 16).toRed(this.red);
+  this.b = new BN(conf.b, 16).toRed(this.red);
+  this.i4 = new BN(4).toRed(this.red).redInvm();
+  this.two = new BN(2).toRed(this.red);
+  this.a24 = this.i4.redMul(this.a.redAdd(this.two));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short" id="apidoc.element.elliptic.curve.short">
+        function <span class="apidocSignatureSpan">elliptic.</span>curve.short
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ShortCurve(conf) {
+  Base.call(this, &#x27;short&#x27;, conf);
+
+  this.a = new BN(conf.a, 16).toRed(this.red);
+  this.b = new BN(conf.b, 16).toRed(this.red);
+  this.tinv = this.two.redInvm();
+
+  this.zeroA = this.a.fromRed().cmpn(0) === 0;
+  this.threeA = this.a.fromRed().sub(this.p).cmpn(-3) === 0;
+
+  // If the curve is endomorphic, precalculate beta and lambda
+  this.endo = this._getEndomorphism(conf);
+  this._endoWnafT1 = new Array(4);
+  this._endoWnafT2 = new Array(4);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.ec" id="apidoc.element.elliptic.ec">
+        function <span class="apidocSignatureSpan">elliptic.</span>ec
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EC(options) {
+  if (!(this instanceof EC))
+    return new EC(options);
+
+  // Shortcut `elliptic.ec(curve-name)`
+  if (typeof options === &#x27;string&#x27;) {
+    assert(elliptic.curves.hasOwnProperty(options), &#x27;Unknown curve &#x27; + options);
+
+    options = elliptic.curves[options];
+  }
+
+  // Shortcut for `elliptic.ec(elliptic.curves.curveName)`
+  if (options instanceof elliptic.curves.PresetCurve)
+    options = { curve: options };
+
+  this.curve = options.curve.curve;
+  this.n = this.curve.n;
+  this.nh = this.n.ushrn(1);
+  this.g = this.curve.g;
+
+  // Point on curve
+  this.g = options.curve.g;
+  this.g.precompute(options.curve.n.bitLength() + 1);
+
+  // Hash for function for DRBG
+  this.hash = options.hash || options.curve.hash;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa" id="apidoc.element.elliptic.eddsa">
+        function <span class="apidocSignatureSpan">elliptic.</span>eddsa
+        <span class="apidocSignatureSpan">(curve)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EDDSA(curve) {
+  assert(curve === &#x27;ed25519&#x27;, &#x27;only tested with ed25519 so far&#x27;);
+
+  if (!(this instanceof EDDSA))
+    return new EDDSA(curve);
+
+  var curve = elliptic.curves[curve].curve;
+  this.curve = curve;
+  this.g = curve.g;
+  this.g.precompute(curve.n.bitLength() + 1);
+
+  this.pointClass = curve.point().constructor;
+  this.encodingLength = Math.ceil(curve.n.bitLength() / 8);
+  this.hash = hash.sha512;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.rand" id="apidoc.element.elliptic.rand">
+        function <span class="apidocSignatureSpan">elliptic.</span>rand
+        <span class="apidocSignatureSpan">(len)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function rand(len) {
+  if (!r)
+    r = new Rand(null);
+
+  return r.generate(len);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.rand.Rand" id="apidoc.element.elliptic.rand.Rand">
+        function <span class="apidocSignatureSpan">elliptic.</span>rand.Rand
+        <span class="apidocSignatureSpan">(rand)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Rand(rand) {
+  this.rand = rand;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.assert" id="apidoc.element.elliptic.utils.assert">
+        function <span class="apidocSignatureSpan">elliptic.</span>utils.assert
+        <span class="apidocSignatureSpan">(val, msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function assert(val, msg) {
+  if (!val)
+    throw new Error(msg || &#x27;Assertion failed&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curve" id="apidoc.module.elliptic.curve">module elliptic.curve</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base" id="apidoc.element.elliptic.curve.base">
+        function <span class="apidocSignatureSpan">elliptic.curve.</span>base
+        <span class="apidocSignatureSpan">(type, conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BaseCurve(type, conf) {
+  this.type = type;
+  this.p = new BN(conf.p, 16);
+
+  // Use Montgomery, when there is no fast reduction for the prime
+  this.red = conf.prime ? BN.red(conf.prime) : BN.mont(this.p);
+
+  // Useful for many curves
+  this.zero = new BN(0).toRed(this.red);
+  this.one = new BN(1).toRed(this.red);
+  this.two = new BN(2).toRed(this.red);
+
+  // Curve configuration, optional
+  this.n = conf.n &#x26;&#x26; new BN(conf.n, 16);
+  this.g = conf.g &#x26;&#x26; this.pointFromJSON(conf.g, conf.gRed);
+
+  // Temporary arrays
+  this._wnafT1 = new Array(4);
+  this._wnafT2 = new Array(4);
+  this._wnafT3 = new Array(4);
+  this._wnafT4 = new Array(4);
+
+  // Generalized Greg Maxwell&#x27;s trick
+  var adjustCount = this.n &#x26;&#x26; this.p.div(this.n);
+  if (!adjustCount || adjustCount.cmpn(100) &#x3e; 0) {
+    this.redN = null;
+  } else {
+    this._maxwellTrick = true;
+    this.redN = this.n.toRed(this.red);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.edwards" id="apidoc.element.elliptic.curve.edwards">
+        function <span class="apidocSignatureSpan">elliptic.curve.</span>edwards
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EdwardsCurve(conf) {
+  // NOTE: Important as we are creating point in Base.call()
+  this.twisted = (conf.a | 0) !== 1;
+  this.mOneA = this.twisted &#x26;&#x26; (conf.a | 0) === -1;
+  this.extended = this.mOneA;
+
+  Base.call(this, &#x27;edwards&#x27;, conf);
+
+  this.a = new BN(conf.a, 16).umod(this.red.m);
+  this.a = this.a.toRed(this.red);
+  this.c = new BN(conf.c, 16).toRed(this.red);
+  this.c2 = this.c.redSqr();
+  this.d = new BN(conf.d, 16).toRed(this.red);
+  this.dd = this.d.redAdd(this.d);
+
+  assert(!this.twisted || this.c.fromRed().cmpn(1) === 0);
+  this.oneC = (conf.c | 0) === 1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.mont" id="apidoc.element.elliptic.curve.mont">
+        function <span class="apidocSignatureSpan">elliptic.curve.</span>mont
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MontCurve(conf) {
+  Base.call(this, &#x27;mont&#x27;, conf);
+
+  this.a = new BN(conf.a, 16).toRed(this.red);
+  this.b = new BN(conf.b, 16).toRed(this.red);
+  this.i4 = new BN(4).toRed(this.red).redInvm();
+  this.two = new BN(2).toRed(this.red);
+  this.a24 = this.i4.redMul(this.a.redAdd(this.two));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short" id="apidoc.element.elliptic.curve.short">
+        function <span class="apidocSignatureSpan">elliptic.curve.</span>short
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ShortCurve(conf) {
+  Base.call(this, &#x27;short&#x27;, conf);
+
+  this.a = new BN(conf.a, 16).toRed(this.red);
+  this.b = new BN(conf.b, 16).toRed(this.red);
+  this.tinv = this.two.redInvm();
+
+  this.zeroA = this.a.fromRed().cmpn(0) === 0;
+  this.threeA = this.a.fromRed().sub(this.p).cmpn(-3) === 0;
+
+  // If the curve is endomorphic, precalculate beta and lambda
+  this.endo = this._getEndomorphism(conf);
+  this._endoWnafT1 = new Array(4);
+  this._endoWnafT2 = new Array(4);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curve.base" id="apidoc.module.elliptic.curve.base">module elliptic.curve.base</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.base" id="apidoc.element.elliptic.curve.base.base">
+        function <span class="apidocSignatureSpan">elliptic.curve.</span>base
+        <span class="apidocSignatureSpan">(type, conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BaseCurve(type, conf) {
+  this.type = type;
+  this.p = new BN(conf.p, 16);
+
+  // Use Montgomery, when there is no fast reduction for the prime
+  this.red = conf.prime ? BN.red(conf.prime) : BN.mont(this.p);
+
+  // Useful for many curves
+  this.zero = new BN(0).toRed(this.red);
+  this.one = new BN(1).toRed(this.red);
+  this.two = new BN(2).toRed(this.red);
+
+  // Curve configuration, optional
+  this.n = conf.n &#x26;&#x26; new BN(conf.n, 16);
+  this.g = conf.g &#x26;&#x26; this.pointFromJSON(conf.g, conf.gRed);
+
+  // Temporary arrays
+  this._wnafT1 = new Array(4);
+  this._wnafT2 = new Array(4);
+  this._wnafT3 = new Array(4);
+  this._wnafT4 = new Array(4);
+
+  // Generalized Greg Maxwell&#x27;s trick
+  var adjustCount = this.n &#x26;&#x26; this.p.div(this.n);
+  if (!adjustCount || adjustCount.cmpn(100) &#x3e; 0) {
+    this.redN = null;
+  } else {
+    this._maxwellTrick = true;
+    this.redN = this.n.toRed(this.red);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.BasePoint" id="apidoc.element.elliptic.curve.base.BasePoint">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.</span>BasePoint
+        <span class="apidocSignatureSpan">(curve, type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BasePoint(curve, type) {
+  this.curve = curve;
+  this.type = type;
+  this.precomputed = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curve.base.BasePoint.prototype" id="apidoc.module.elliptic.curve.base.BasePoint.prototype">module elliptic.curve.base.BasePoint.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.BasePoint.prototype._encode" id="apidoc.element.elliptic.curve.base.BasePoint.prototype._encode">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>_encode
+        <span class="apidocSignatureSpan">(compact)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _encode(compact) {
+  var len = this.curve.p.byteLength();
+  var x = this.getX().toArray(&#x27;be&#x27;, len);
+
+  if (compact)
+    return [ this.getY().isEven() ? 0x02 : 0x03 ].concat(x);
+
+  return [ 0x04 ].concat(x, this.getY().toArray(&#x27;be&#x27;, len)) ;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.BasePoint.prototype._getBeta" id="apidoc.element.elliptic.curve.base.BasePoint.prototype._getBeta">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>_getBeta
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _getBeta() {
+  return null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.BasePoint.prototype._getDoubles" id="apidoc.element.elliptic.curve.base.BasePoint.prototype._getDoubles">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>_getDoubles
+        <span class="apidocSignatureSpan">(step, power)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _getDoubles(step, power) {
+  if (this.precomputed &#x26;&#x26; this.precomputed.doubles)
+    return this.precomputed.doubles;
+
+  var doubles = [ this ];
+  var acc = this;
+  for (var i = 0; i &#x3c; power; i += step) {
+    for (var j = 0; j &#x3c; step; j++)
+      acc = acc.dbl();
+    doubles.push(acc);
+  }
+  return {
+    step: step,
+    points: doubles
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.BasePoint.prototype._getNAFPoints" id="apidoc.element.elliptic.curve.base.BasePoint.prototype._getNAFPoints">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>_getNAFPoints
+        <span class="apidocSignatureSpan">(wnd)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _getNAFPoints(wnd) {
+  if (this.precomputed &#x26;&#x26; this.precomputed.naf)
+    return this.precomputed.naf;
+
+  var res = [ this ];
+  var max = (1 &#x3c;&#x3c; wnd) - 1;
+  var dbl = max === 1 ? null : this.dbl();
+  for (var i = 1; i &#x3c; max; i++)
+    res[i] = res[i - 1].add(dbl);
+  return {
+    wnd: wnd,
+    points: res
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.BasePoint.prototype._hasDoubles" id="apidoc.element.elliptic.curve.base.BasePoint.prototype._hasDoubles">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>_hasDoubles
+        <span class="apidocSignatureSpan">(k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _hasDoubles(k) {
+  if (!this.precomputed)
+    return false;
+
+  var doubles = this.precomputed.doubles;
+  if (!doubles)
+    return false;
+
+  return doubles.points.length &#x3e;= Math.ceil((k.bitLength() + 1) / doubles.step);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.BasePoint.prototype.dblp" id="apidoc.element.elliptic.curve.base.BasePoint.prototype.dblp">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>dblp
+        <span class="apidocSignatureSpan">(k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function dblp(k) {
+  var r = this;
+  for (var i = 0; i &#x3c; k; i++)
+    r = r.dbl();
+  return r;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.BasePoint.prototype.encode" id="apidoc.element.elliptic.curve.base.BasePoint.prototype.encode">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>encode
+        <span class="apidocSignatureSpan">(enc, compact)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function encode(enc, compact) {
+  return utils.encode(this._encode(compact), enc);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.BasePoint.prototype.encodeCompressed" id="apidoc.element.elliptic.curve.base.BasePoint.prototype.encodeCompressed">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>encodeCompressed
+        <span class="apidocSignatureSpan">(enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function encodeCompressed(enc) {
+  return this.encode(enc, true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.BasePoint.prototype.eq" id="apidoc.element.elliptic.curve.base.BasePoint.prototype.eq">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>eq
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function eq() {
+  throw new Error(&#x27;Not implemented&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.BasePoint.prototype.precompute" id="apidoc.element.elliptic.curve.base.BasePoint.prototype.precompute">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>precompute
+        <span class="apidocSignatureSpan">(power)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function precompute(power) {
+  if (this.precomputed)
+    return this;
+
+  var precomputed = {
+    doubles: null,
+    naf: null,
+    beta: null
+  };
+  precomputed.naf = this._getNAFPoints(8);
+  precomputed.doubles = this._getDoubles(4, power);
+  precomputed.beta = this._getBeta();
+  this.precomputed = precomputed;
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.BasePoint.prototype.validate" id="apidoc.element.elliptic.curve.base.BasePoint.prototype.validate">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.BasePoint.prototype.</span>validate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validate() {
+  return this.curve.validate(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curve.base.prototype" id="apidoc.module.elliptic.curve.base.prototype">module elliptic.curve.base.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.prototype._fixedNafMul" id="apidoc.element.elliptic.curve.base.prototype._fixedNafMul">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.prototype.</span>_fixedNafMul
+        <span class="apidocSignatureSpan">(p, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _fixedNafMul(p, k) {
+  assert(p.precomputed);
+  var doubles = p._getDoubles();
+
+  var naf = getNAF(k, 1);
+  var I = (1 &#x3c;&#x3c; (doubles.step + 1)) - (doubles.step % 2 === 0 ? 2 : 1);
+  I /= 3;
+
+  // Translate into more windowed form
+  var repr = [];
+  for (var j = 0; j &#x3c; naf.length; j += doubles.step) {
+    var nafW = 0;
+    for (var k = j + doubles.step - 1; k &#x3e;= j; k--)
+      nafW = (nafW &#x3c;&#x3c; 1) + naf[k];
+    repr.push(nafW);
+  }
+
+  var a = this.jpoint(null, null, null);
+  var b = this.jpoint(null, null, null);
+  for (var i = I; i &#x3e; 0; i--) {
+    for (var j = 0; j &#x3c; repr.length; j++) {
+      var nafW = repr[j];
+      if (nafW === i)
+        b = b.mixedAdd(doubles.points[j]);
+      else if (nafW === -i)
+        b = b.mixedAdd(doubles.points[j].neg());
+    }
+    a = a.add(b);
+  }
+  return a.toP();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.prototype._wnafMul" id="apidoc.element.elliptic.curve.base.prototype._wnafMul">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.prototype.</span>_wnafMul
+        <span class="apidocSignatureSpan">(p, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _wnafMul(p, k) {
+  var w = 4;
+
+  // Precompute window
+  var nafPoints = p._getNAFPoints(w);
+  w = nafPoints.wnd;
+  var wnd = nafPoints.points;
+
+  // Get NAF form
+  var naf = getNAF(k, w);
+
+  // Add `this`*(N+1) for every w-NAF index
+  var acc = this.jpoint(null, null, null);
+  for (var i = naf.length - 1; i &#x3e;= 0; i--) {
+    // Count zeroes
+    for (var k = 0; i &#x3e;= 0 &#x26;&#x26; naf[i] === 0; i--)
+      k++;
+    if (i &#x3e;= 0)
+      k++;
+    acc = acc.dblp(k);
+
+    if (i &#x3c; 0)
+      break;
+    var z = naf[i];
+    assert(z !== 0);
+    if (p.type === &#x27;affine&#x27;) {
+      // J +- P
+      if (z &#x3e; 0)
+        acc = acc.mixedAdd(wnd[(z - 1) &#x3e;&#x3e; 1]);
+      else
+        acc = acc.mixedAdd(wnd[(-z - 1) &#x3e;&#x3e; 1].neg());
+    } else {
+      // J +- J
+      if (z &#x3e; 0)
+        acc = acc.add(wnd[(z - 1) &#x3e;&#x3e; 1]);
+      else
+        acc = acc.add(wnd[(-z - 1) &#x3e;&#x3e; 1].neg());
+    }
+  }
+  return p.type === &#x27;affine&#x27; ? acc.toP() : acc;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.prototype._wnafMulAdd" id="apidoc.element.elliptic.curve.base.prototype._wnafMulAdd">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.prototype.</span>_wnafMulAdd
+        <span class="apidocSignatureSpan">(defW, points, coeffs, len, jacobianResult)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _wnafMulAdd(defW, points, coeffs, len, jacobianResult) {
+  var wndWidth = this._wnafT1;
+  var wnd = this._wnafT2;
+  var naf = this._wnafT3;
+
+  // Fill all arrays
+  var max = 0;
+  for (var i = 0; i &#x3c; len; i++) {
+    var p = points[i];
+    var nafPoints = p._getNAFPoints(defW);
+    wndWidth[i] = nafPoints.wnd;
+    wnd[i] = nafPoints.points;
+  }
+
+  // Comb small window NAFs
+  for (var i = len - 1; i &#x3e;= 1; i -= 2) {
+    var a = i - 1;
+    var b = i;
+    if (wndWidth[a] !== 1 || wndWidth[b] !== 1) {
+      naf[a] = getNAF(coeffs[a], wndWidth[a]);
+      naf[b] = getNAF(coeffs[b], wndWidth[b]);
+      max = Math.max(naf[a].length, max);
+      max = Math.max(naf[b].length, max);
+      continue;
+    }
+
+    var comb = [
+      points[a],<span class="apidocCodeCommentSpan"> /* 1 */
+</span>      null, /* 3 */
+      null, /* 5 */
+      points[b] /* 7 */
+    ];
+
+    // Try to avoid Projective points, if possible
+    if (points[a].y.cmp(points[b].y) === 0) {
+      comb[1] = points[a].add(points[b]);
+      comb[2] = points[a].toJ().mixedAdd(points[b].neg());
+    } else if (points[a].y.cmp(points[b].y.redNeg()) === 0) {
+      comb[1] = points[a].toJ().mixedAdd(points[b]);
+      comb[2] = points[a].add(points[b].neg());
+    } else {
+      comb[1] = points[a].toJ().mixedAdd(points[b]);
+      comb[2] = points[a].toJ().mixedAdd(points[b].neg());
+    }
+
+    var index = [
+      -3, /* -1 -1 */
+      -1, /* -1 0 */
+      -5, /* -1 1 */
+      -7, /* 0 -1 */
+      0, /* 0 0 */
+      7, /* 0 1 */
+      5, /* 1 -1 */
+      1, /* 1 0 */
+      3  /* 1 1 */
+    ];
+
+    var jsf = getJSF(coeffs[a], coeffs[b]);
+    max = Math.max(jsf[0].length, max);
+    naf[a] = new Array(max);
+    naf[b] = new Array(max);
+    for (var j = 0; j &#x3c; max; j++) {
+      var ja = jsf[0][j] | 0;
+      var jb = jsf[1][j] | 0;
+
+      naf[a][j] = index[(ja + 1) * 3 + (jb + 1)];
+      naf[b][j] = 0;
+      wnd[a] = comb;
+    }
+  }
+
+  var acc = this.jpoint(null, null, null);
+  var tmp = this._wnafT4;
+  for (var i = max; i &#x3e;= 0; i--) {
+    var k = 0;
+
+    while (i &#x3e;= 0) {
+      var zero = true;
+      for (var j = 0; j &#x3c; len; j++) {
+        tmp[j] = naf[j][i] | 0;
+        if (tmp[j] !== 0)
+          zero = false;
+      }
+      if (!zero)
+        break;
+      k++;
+      i--;
+    }
+    if (i &#x3e;= 0)
+      k++;
+    acc = acc.dblp(k);
+    if (i &#x3c; 0)
+      break;
+
+    for (var j = 0; j &#x3c; len; j++) {
+      var z = tmp[j];
+      var p;
+      if (z === 0)
+        continue;
+      else if (z &#x3e; 0)
+        p = wnd[j][(z - 1) &#x3e;&#x3e; 1];
+      else if (z &#x3c; 0)
+        p = wnd[j][(-z - 1) &#x3e;&#x3e; 1].neg();
+
+      if (p.type === &#x27;affine&#x27;)
+        acc = acc.mixedAdd(p);
+      else
+        acc = acc.add(p);
+    }
+  }
+  // Zeroify references
+  for (var i = 0; i &#x3c; len; i++)
+    wnd[i] = null;
+
+  if (jacobianResult)
+    return acc;
+  else
+    return acc.toP();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.prototype.decodePoint" id="apidoc.element.elliptic.curve.base.prototype.decodePoint">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.prototype.</span>decodePoint
+        <span class="apidocSignatureSpan">(bytes, enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function decodePoint(bytes, enc) {
+  bytes = utils.toArray(bytes, enc);
+
+  var len = this.p.byteLength();
+
+  // uncompressed, hybrid-odd, hybrid-even
+  if ((bytes[0] === 0x04 || bytes[0] === 0x06 || bytes[0] === 0x07) &#x26;&#x26;
+      bytes.length - 1 === 2 * len) {
+    if (bytes[0] === 0x06)
+      assert(bytes[bytes.length - 1] % 2 === 0);
+    else if (bytes[0] === 0x07)
+      assert(bytes[bytes.length - 1] % 2 === 1);
+
+    var res =  this.point(bytes.slice(1, 1 + len),
+                          bytes.slice(1 + len, 1 + 2 * len));
+
+    return res;
+  } else if ((bytes[0] === 0x02 || bytes[0] === 0x03) &#x26;&#x26;
+              bytes.length - 1 === len) {
+    return this.pointFromX(bytes.slice(1, 1 + len), bytes[0] === 0x03);
+  }
+  throw new Error(&#x27;Unknown point format&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.prototype.point" id="apidoc.element.elliptic.curve.base.prototype.point">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.prototype.</span>point
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function point() {
+  throw new Error(&#x27;Not implemented&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.base.prototype.validate" id="apidoc.element.elliptic.curve.base.prototype.validate">
+        function <span class="apidocSignatureSpan">elliptic.curve.base.prototype.</span>validate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validate() {
+  throw new Error(&#x27;Not implemented&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curve.edwards" id="apidoc.module.elliptic.curve.edwards">module elliptic.curve.edwards</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.edwards.edwards" id="apidoc.element.elliptic.curve.edwards.edwards">
+        function <span class="apidocSignatureSpan">elliptic.curve.</span>edwards
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EdwardsCurve(conf) {
+  // NOTE: Important as we are creating point in Base.call()
+  this.twisted = (conf.a | 0) !== 1;
+  this.mOneA = this.twisted &#x26;&#x26; (conf.a | 0) === -1;
+  this.extended = this.mOneA;
+
+  Base.call(this, &#x27;edwards&#x27;, conf);
+
+  this.a = new BN(conf.a, 16).umod(this.red.m);
+  this.a = this.a.toRed(this.red);
+  this.c = new BN(conf.c, 16).toRed(this.red);
+  this.c2 = this.c.redSqr();
+  this.d = new BN(conf.d, 16).toRed(this.red);
+  this.dd = this.d.redAdd(this.d);
+
+  assert(!this.twisted || this.c.fromRed().cmpn(1) === 0);
+  this.oneC = (conf.c | 0) === 1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.edwards.super_" id="apidoc.element.elliptic.curve.edwards.super_">
+        function <span class="apidocSignatureSpan">elliptic.curve.edwards.</span>super_
+        <span class="apidocSignatureSpan">(type, conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BaseCurve(type, conf) {
+  this.type = type;
+  this.p = new BN(conf.p, 16);
+
+  // Use Montgomery, when there is no fast reduction for the prime
+  this.red = conf.prime ? BN.red(conf.prime) : BN.mont(this.p);
+
+  // Useful for many curves
+  this.zero = new BN(0).toRed(this.red);
+  this.one = new BN(1).toRed(this.red);
+  this.two = new BN(2).toRed(this.red);
+
+  // Curve configuration, optional
+  this.n = conf.n &#x26;&#x26; new BN(conf.n, 16);
+  this.g = conf.g &#x26;&#x26; this.pointFromJSON(conf.g, conf.gRed);
+
+  // Temporary arrays
+  this._wnafT1 = new Array(4);
+  this._wnafT2 = new Array(4);
+  this._wnafT3 = new Array(4);
+  this._wnafT4 = new Array(4);
+
+  // Generalized Greg Maxwell&#x27;s trick
+  var adjustCount = this.n &#x26;&#x26; this.p.div(this.n);
+  if (!adjustCount || adjustCount.cmpn(100) &#x3e; 0) {
+    this.redN = null;
+  } else {
+    this._maxwellTrick = true;
+    this.redN = this.n.toRed(this.red);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curve.edwards.prototype" id="apidoc.module.elliptic.curve.edwards.prototype">module elliptic.curve.edwards.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.edwards.prototype._mulA" id="apidoc.element.elliptic.curve.edwards.prototype._mulA">
+        function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>_mulA
+        <span class="apidocSignatureSpan">(num)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _mulA(num) {
+  if (this.mOneA)
+    return num.redNeg();
+  else
+    return this.a.redMul(num);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.edwards.prototype._mulC" id="apidoc.element.elliptic.curve.edwards.prototype._mulC">
+        function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>_mulC
+        <span class="apidocSignatureSpan">(num)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _mulC(num) {
+  if (this.oneC)
+    return num;
+  else
+    return this.c.redMul(num);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.edwards.prototype.jpoint" id="apidoc.element.elliptic.curve.edwards.prototype.jpoint">
+        function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>jpoint
+        <span class="apidocSignatureSpan">(x, y, z, t)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function jpoint(x, y, z, t) {
+  return this.point(x, y, z, t);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.edwards.prototype.point" id="apidoc.element.elliptic.curve.edwards.prototype.point">
+        function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>point
+        <span class="apidocSignatureSpan">(x, y, z, t)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function point(x, y, z, t) {
+  return new Point(this, x, y, z, t);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.edwards.prototype.pointFromJSON" id="apidoc.element.elliptic.curve.edwards.prototype.pointFromJSON">
+        function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>pointFromJSON
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pointFromJSON(obj) {
+  return Point.fromJSON(this, obj);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.edwards.prototype.pointFromX" id="apidoc.element.elliptic.curve.edwards.prototype.pointFromX">
+        function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>pointFromX
+        <span class="apidocSignatureSpan">(x, odd)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pointFromX(x, odd) {
+  x = new BN(x, 16);
+  if (!x.red)
+    x = x.toRed(this.red);
+
+  var x2 = x.redSqr();
+  var rhs = this.c2.redSub(this.a.redMul(x2));
+  var lhs = this.one.redSub(this.c2.redMul(this.d).redMul(x2));
+
+  var y2 = rhs.redMul(lhs.redInvm());
+  var y = y2.redSqrt();
+  if (y.redSqr().redSub(y2).cmp(this.zero) !== 0)
+    throw new Error(&#x27;invalid point&#x27;);
+
+  var isOdd = y.fromRed().isOdd();
+  if (odd &#x26;&#x26; !isOdd || !odd &#x26;&#x26; isOdd)
+    y = y.redNeg();
+
+  return this.point(x, y);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.edwards.prototype.pointFromY" id="apidoc.element.elliptic.curve.edwards.prototype.pointFromY">
+        function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>pointFromY
+        <span class="apidocSignatureSpan">(y, odd)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pointFromY(y, odd) {
+  y = new BN(y, 16);
+  if (!y.red)
+    y = y.toRed(this.red);
+
+  // x^2 = (y^2 - 1) / (d y^2 + 1)
+  var y2 = y.redSqr();
+  var lhs = y2.redSub(this.one);
+  var rhs = y2.redMul(this.d).redAdd(this.one);
+  var x2 = lhs.redMul(rhs.redInvm());
+
+  if (x2.cmp(this.zero) === 0) {
+    if (odd)
+      throw new Error(&#x27;invalid point&#x27;);
+    else
+      return this.point(this.zero, y);
+  }
+
+  var x = x2.redSqrt();
+  if (x.redSqr().redSub(x2).cmp(this.zero) !== 0)
+    throw new Error(&#x27;invalid point&#x27;);
+
+  if (x.isOdd() !== odd)
+    x = x.redNeg();
+
+  return this.point(x, y);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.edwards.prototype.validate" id="apidoc.element.elliptic.curve.edwards.prototype.validate">
+        function <span class="apidocSignatureSpan">elliptic.curve.edwards.prototype.</span>validate
+        <span class="apidocSignatureSpan">(point)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validate(point) {
+  if (point.isInfinity())
+    return true;
+
+  // Curve: A * X^2 + Y^2 = C^2 * (1 + D * X^2 * Y^2)
+  point.normalize();
+
+  var x2 = point.x.redSqr();
+  var y2 = point.y.redSqr();
+  var lhs = x2.redMul(this.a).redAdd(y2);
+  var rhs = this.c2.redMul(this.one.redAdd(this.d.redMul(x2).redMul(y2)));
+
+  return lhs.cmp(rhs) === 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curve.mont" id="apidoc.module.elliptic.curve.mont">module elliptic.curve.mont</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.mont.mont" id="apidoc.element.elliptic.curve.mont.mont">
+        function <span class="apidocSignatureSpan">elliptic.curve.</span>mont
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MontCurve(conf) {
+  Base.call(this, &#x27;mont&#x27;, conf);
+
+  this.a = new BN(conf.a, 16).toRed(this.red);
+  this.b = new BN(conf.b, 16).toRed(this.red);
+  this.i4 = new BN(4).toRed(this.red).redInvm();
+  this.two = new BN(2).toRed(this.red);
+  this.a24 = this.i4.redMul(this.a.redAdd(this.two));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.mont.super_" id="apidoc.element.elliptic.curve.mont.super_">
+        function <span class="apidocSignatureSpan">elliptic.curve.mont.</span>super_
+        <span class="apidocSignatureSpan">(type, conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BaseCurve(type, conf) {
+  this.type = type;
+  this.p = new BN(conf.p, 16);
+
+  // Use Montgomery, when there is no fast reduction for the prime
+  this.red = conf.prime ? BN.red(conf.prime) : BN.mont(this.p);
+
+  // Useful for many curves
+  this.zero = new BN(0).toRed(this.red);
+  this.one = new BN(1).toRed(this.red);
+  this.two = new BN(2).toRed(this.red);
+
+  // Curve configuration, optional
+  this.n = conf.n &#x26;&#x26; new BN(conf.n, 16);
+  this.g = conf.g &#x26;&#x26; this.pointFromJSON(conf.g, conf.gRed);
+
+  // Temporary arrays
+  this._wnafT1 = new Array(4);
+  this._wnafT2 = new Array(4);
+  this._wnafT3 = new Array(4);
+  this._wnafT4 = new Array(4);
+
+  // Generalized Greg Maxwell&#x27;s trick
+  var adjustCount = this.n &#x26;&#x26; this.p.div(this.n);
+  if (!adjustCount || adjustCount.cmpn(100) &#x3e; 0) {
+    this.redN = null;
+  } else {
+    this._maxwellTrick = true;
+    this.redN = this.n.toRed(this.red);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curve.mont.prototype" id="apidoc.module.elliptic.curve.mont.prototype">module elliptic.curve.mont.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.mont.prototype.decodePoint" id="apidoc.element.elliptic.curve.mont.prototype.decodePoint">
+        function <span class="apidocSignatureSpan">elliptic.curve.mont.prototype.</span>decodePoint
+        <span class="apidocSignatureSpan">(bytes, enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function decodePoint(bytes, enc) {
+  return this.point(utils.toArray(bytes, enc), 1);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.mont.prototype.point" id="apidoc.element.elliptic.curve.mont.prototype.point">
+        function <span class="apidocSignatureSpan">elliptic.curve.mont.prototype.</span>point
+        <span class="apidocSignatureSpan">(x, z)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function point(x, z) {
+  return new Point(this, x, z);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.mont.prototype.pointFromJSON" id="apidoc.element.elliptic.curve.mont.prototype.pointFromJSON">
+        function <span class="apidocSignatureSpan">elliptic.curve.mont.prototype.</span>pointFromJSON
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pointFromJSON(obj) {
+  return Point.fromJSON(this, obj);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.mont.prototype.validate" id="apidoc.element.elliptic.curve.mont.prototype.validate">
+        function <span class="apidocSignatureSpan">elliptic.curve.mont.prototype.</span>validate
+        <span class="apidocSignatureSpan">(point)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validate(point) {
+  var x = point.normalize().x;
+  var x2 = x.redSqr();
+  var rhs = x2.redMul(x).redAdd(x2.redMul(this.a)).redAdd(x);
+  var y = rhs.redSqrt();
+
+  return y.redSqr().cmp(rhs) === 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curve.short" id="apidoc.module.elliptic.curve.short">module elliptic.curve.short</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short.short" id="apidoc.element.elliptic.curve.short.short">
+        function <span class="apidocSignatureSpan">elliptic.curve.</span>short
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ShortCurve(conf) {
+  Base.call(this, &#x27;short&#x27;, conf);
+
+  this.a = new BN(conf.a, 16).toRed(this.red);
+  this.b = new BN(conf.b, 16).toRed(this.red);
+  this.tinv = this.two.redInvm();
+
+  this.zeroA = this.a.fromRed().cmpn(0) === 0;
+  this.threeA = this.a.fromRed().sub(this.p).cmpn(-3) === 0;
+
+  // If the curve is endomorphic, precalculate beta and lambda
+  this.endo = this._getEndomorphism(conf);
+  this._endoWnafT1 = new Array(4);
+  this._endoWnafT2 = new Array(4);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short.super_" id="apidoc.element.elliptic.curve.short.super_">
+        function <span class="apidocSignatureSpan">elliptic.curve.short.</span>super_
+        <span class="apidocSignatureSpan">(type, conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BaseCurve(type, conf) {
+  this.type = type;
+  this.p = new BN(conf.p, 16);
+
+  // Use Montgomery, when there is no fast reduction for the prime
+  this.red = conf.prime ? BN.red(conf.prime) : BN.mont(this.p);
+
+  // Useful for many curves
+  this.zero = new BN(0).toRed(this.red);
+  this.one = new BN(1).toRed(this.red);
+  this.two = new BN(2).toRed(this.red);
+
+  // Curve configuration, optional
+  this.n = conf.n &#x26;&#x26; new BN(conf.n, 16);
+  this.g = conf.g &#x26;&#x26; this.pointFromJSON(conf.g, conf.gRed);
+
+  // Temporary arrays
+  this._wnafT1 = new Array(4);
+  this._wnafT2 = new Array(4);
+  this._wnafT3 = new Array(4);
+  this._wnafT4 = new Array(4);
+
+  // Generalized Greg Maxwell&#x27;s trick
+  var adjustCount = this.n &#x26;&#x26; this.p.div(this.n);
+  if (!adjustCount || adjustCount.cmpn(100) &#x3e; 0) {
+    this.redN = null;
+  } else {
+    this._maxwellTrick = true;
+    this.redN = this.n.toRed(this.red);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curve.short.prototype" id="apidoc.module.elliptic.curve.short.prototype">module elliptic.curve.short.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short.prototype._endoSplit" id="apidoc.element.elliptic.curve.short.prototype._endoSplit">
+        function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>_endoSplit
+        <span class="apidocSignatureSpan">(k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _endoSplit(k) {
+  var basis = this.endo.basis;
+  var v1 = basis[0];
+  var v2 = basis[1];
+
+  var c1 = v2.b.mul(k).divRound(this.n);
+  var c2 = v1.b.neg().mul(k).divRound(this.n);
+
+  var p1 = c1.mul(v1.a);
+  var p2 = c2.mul(v2.a);
+  var q1 = c1.mul(v1.b);
+  var q2 = c2.mul(v2.b);
+
+  // Calculate answer
+  var k1 = k.sub(p1).sub(p2);
+  var k2 = q1.add(q2).neg();
+  return { k1: k1, k2: k2 };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short.prototype._endoWnafMulAdd" id="apidoc.element.elliptic.curve.short.prototype._endoWnafMulAdd">
+        function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>_endoWnafMulAdd
+        <span class="apidocSignatureSpan">(points, coeffs, jacobianResult)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _endoWnafMulAdd(points, coeffs, jacobianResult) {
+  var npoints = this._endoWnafT1;
+  var ncoeffs = this._endoWnafT2;
+  for (var i = 0; i &#x3c; points.length; i++) {
+    var split = this._endoSplit(coeffs[i]);
+    var p = points[i];
+    var beta = p._getBeta();
+
+    if (split.k1.negative) {
+      split.k1.ineg();
+      p = p.neg(true);
+    }
+    if (split.k2.negative) {
+      split.k2.ineg();
+      beta = beta.neg(true);
+    }
+
+    npoints[i * 2] = p;
+    npoints[i * 2 + 1] = beta;
+    ncoeffs[i * 2] = split.k1;
+    ncoeffs[i * 2 + 1] = split.k2;
+  }
+  var res = this._wnafMulAdd(1, npoints, ncoeffs, i * 2, jacobianResult);
+
+  // Clean-up references to points and coefficients
+  for (var j = 0; j &#x3c; i * 2; j++) {
+    npoints[j] = null;
+    ncoeffs[j] = null;
+  }
+  return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short.prototype._getEndoBasis" id="apidoc.element.elliptic.curve.short.prototype._getEndoBasis">
+        function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>_getEndoBasis
+        <span class="apidocSignatureSpan">(lambda)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _getEndoBasis(lambda) {
+  // aprxSqrt &#x3e;= sqrt(this.n)
+  var aprxSqrt = this.n.ushrn(Math.floor(this.n.bitLength() / 2));
+
+  // 3.74
+  // Run EGCD, until r(L + 1) &#x3c; aprxSqrt
+  var u = lambda;
+  var v = this.n.clone();
+  var x1 = new BN(1);
+  var y1 = new BN(0);
+  var x2 = new BN(0);
+  var y2 = new BN(1);
+
+  // NOTE: all vectors are roots of: a + b * lambda = 0 (mod n)
+  var a0;
+  var b0;
+  // First vector
+  var a1;
+  var b1;
+  // Second vector
+  var a2;
+  var b2;
+
+  var prevR;
+  var i = 0;
+  var r;
+  var x;
+  while (u.cmpn(0) !== 0) {
+    var q = v.div(u);
+    r = v.sub(q.mul(u));
+    x = x2.sub(q.mul(x1));
+    var y = y2.sub(q.mul(y1));
+
+    if (!a1 &#x26;&#x26; r.cmp(aprxSqrt) &#x3c; 0) {
+      a0 = prevR.neg();
+      b0 = x1;
+      a1 = r.neg();
+      b1 = x;
+    } else if (a1 &#x26;&#x26; ++i === 2) {
+      break;
+    }
+    prevR = r;
+
+    v = u;
+    u = r;
+    x2 = x1;
+    x1 = x;
+    y2 = y1;
+    y1 = y;
+  }
+  a2 = r.neg();
+  b2 = x;
+
+  var len1 = a1.sqr().add(b1.sqr());
+  var len2 = a2.sqr().add(b2.sqr());
+  if (len2.cmp(len1) &#x3e;= 0) {
+    a2 = a0;
+    b2 = b0;
+  }
+
+  // Normalize signs
+  if (a1.negative) {
+    a1 = a1.neg();
+    b1 = b1.neg();
+  }
+  if (a2.negative) {
+    a2 = a2.neg();
+    b2 = b2.neg();
+  }
+
+  return [
+    { a: a1, b: b1 },
+    { a: a2, b: b2 }
+  ];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short.prototype._getEndoRoots" id="apidoc.element.elliptic.curve.short.prototype._getEndoRoots">
+        function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>_getEndoRoots
+        <span class="apidocSignatureSpan">(num)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _getEndoRoots(num) {
+  // Find roots of for x^2 + x + 1 in F
+  // Root = (-1 +- Sqrt(-3)) / 2
+  //
+  var red = num === this.p ? this.red : BN.mont(num);
+  var tinv = new BN(2).toRed(red).redInvm();
+  var ntinv = tinv.redNeg();
+
+  var s = new BN(3).toRed(red).redNeg().redSqrt().redMul(tinv);
+
+  var l1 = ntinv.redAdd(s).fromRed();
+  var l2 = ntinv.redSub(s).fromRed();
+  return [ l1, l2 ];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short.prototype._getEndomorphism" id="apidoc.element.elliptic.curve.short.prototype._getEndomorphism">
+        function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>_getEndomorphism
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _getEndomorphism(conf) {
+  // No efficient endomorphism
+  if (!this.zeroA || !this.g || !this.n || this.p.modn(3) !== 1)
+    return;
+
+  // Compute beta and lambda, that lambda * P = (beta * Px; Py)
+  var beta;
+  var lambda;
+  if (conf.beta) {
+    beta = new BN(conf.beta, 16).toRed(this.red);
+  } else {
+    var betas = this._getEndoRoots(this.p);
+    // Choose the smallest beta
+    beta = betas[0].cmp(betas[1]) &#x3c; 0 ? betas[0] : betas[1];
+    beta = beta.toRed(this.red);
+  }
+  if (conf.lambda) {
+    lambda = new BN(conf.lambda, 16);
+  } else {
+    // Choose the lambda that is matching selected beta
+    var lambdas = this._getEndoRoots(this.n);
+    if (this.g.mul(lambdas[0]).x.cmp(this.g.x.redMul(beta)) === 0) {
+      lambda = lambdas[0];
+    } else {
+      lambda = lambdas[1];
+      assert(this.g.mul(lambda).x.cmp(this.g.x.redMul(beta)) === 0);
+    }
+  }
+
+  // Get basis vectors, used for balanced length-two representation
+  var basis;
+  if (conf.basis) {
+    basis = conf.basis.map(function(vec) {
+      return {
+        a: new BN(vec.a, 16),
+        b: new BN(vec.b, 16)
+      };
+    });
+  } else {
+    basis = this._getEndoBasis(lambda);
+  }
+
+  return {
+    beta: beta,
+    lambda: lambda,
+    basis: basis
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short.prototype.jpoint" id="apidoc.element.elliptic.curve.short.prototype.jpoint">
+        function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>jpoint
+        <span class="apidocSignatureSpan">(x, y, z)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function jpoint(x, y, z) {
+  return new JPoint(this, x, y, z);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short.prototype.point" id="apidoc.element.elliptic.curve.short.prototype.point">
+        function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>point
+        <span class="apidocSignatureSpan">(x, y, isRed)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function point(x, y, isRed) {
+  return new Point(this, x, y, isRed);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short.prototype.pointFromJSON" id="apidoc.element.elliptic.curve.short.prototype.pointFromJSON">
+        function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>pointFromJSON
+        <span class="apidocSignatureSpan">(obj, red)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pointFromJSON(obj, red) {
+  return Point.fromJSON(this, obj, red);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short.prototype.pointFromX" id="apidoc.element.elliptic.curve.short.prototype.pointFromX">
+        function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>pointFromX
+        <span class="apidocSignatureSpan">(x, odd)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pointFromX(x, odd) {
+  x = new BN(x, 16);
+  if (!x.red)
+    x = x.toRed(this.red);
+
+  var y2 = x.redSqr().redMul(x).redIAdd(x.redMul(this.a)).redIAdd(this.b);
+  var y = y2.redSqrt();
+  if (y.redSqr().redSub(y2).cmp(this.zero) !== 0)
+    throw new Error(&#x27;invalid point&#x27;);
+
+  // XXX Is there any way to tell if the number is odd without converting it
+  // to non-red form?
+  var isOdd = y.fromRed().isOdd();
+  if (odd &#x26;&#x26; !isOdd || !odd &#x26;&#x26; isOdd)
+    y = y.redNeg();
+
+  return this.point(x, y);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curve.short.prototype.validate" id="apidoc.element.elliptic.curve.short.prototype.validate">
+        function <span class="apidocSignatureSpan">elliptic.curve.short.prototype.</span>validate
+        <span class="apidocSignatureSpan">(point)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function validate(point) {
+  if (point.inf)
+    return true;
+
+  var x = point.x;
+  var y = point.y;
+
+  var ax = this.a.redMul(x);
+  var rhs = x.redSqr().redMul(x).redIAdd(ax).redIAdd(this.b);
+  return y.redSqr().redISub(rhs).cmpn(0) === 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curves" id="apidoc.module.elliptic.curves">module elliptic.curves</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.PresetCurve" id="apidoc.element.elliptic.curves.PresetCurve">
+        function <span class="apidocSignatureSpan">elliptic.curves.</span>PresetCurve
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PresetCurve(options) {
+  if (options.type === &#x27;short&#x27;)
+    this.curve = new elliptic.curve.short(options);
+  else if (options.type === &#x27;edwards&#x27;)
+    this.curve = new elliptic.curve.edwards(options);
+  else
+    this.curve = new elliptic.curve.mont(options);
+  this.g = this.curve.g;
+  this.n = this.curve.n;
+  this.hash = options.hash;
+
+  assert(this.g.validate(), &#x27;Invalid curve&#x27;);
+  assert(this.g.mul(this.n).isInfinity(), &#x27;Invalid curve, G*N != O&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curves.curve25519" id="apidoc.module.elliptic.curves.curve25519">module elliptic.curves.curve25519</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.curve25519.hash" id="apidoc.element.elliptic.curves.curve25519.hash">
+        function <span class="apidocSignatureSpan">elliptic.curves.curve25519.</span>hash
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SHA256() {
+  if (!(this instanceof SHA256))
+    return new SHA256();
+
+  BlockHash.call(this);
+  this.h = [ 0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
+             0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19 ];
+  this.k = sha256_K;
+  this.W = new Array(64);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curves.curve25519.hash.prototype" id="apidoc.module.elliptic.curves.curve25519.hash.prototype">module elliptic.curves.curve25519.hash.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.curve25519.hash.prototype._digest" id="apidoc.element.elliptic.curves.curve25519.hash.prototype._digest">
+        function <span class="apidocSignatureSpan">elliptic.curves.curve25519.hash.prototype.</span>_digest
+        <span class="apidocSignatureSpan">(enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function digest(enc) {
+  if (enc === &#x27;hex&#x27;)
+    return utils.toHex32(this.h, &#x27;big&#x27;);
+  else
+    return utils.split32(this.h, &#x27;big&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.curve25519.hash.prototype._update" id="apidoc.element.elliptic.curves.curve25519.hash.prototype._update">
+        function <span class="apidocSignatureSpan">elliptic.curves.curve25519.hash.prototype.</span>_update
+        <span class="apidocSignatureSpan">(msg, start)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _update(msg, start) {
+  var W = this.W;
+
+  for (var i = 0; i &#x3c; 16; i++)
+    W[i] = msg[start + i];
+  for (; i &#x3c; W.length; i++)
+    W[i] = sum32_4(g1_256(W[i - 2]), W[i - 7], g0_256(W[i - 15]), W[i - 16]);
+
+  var a = this.h[0];
+  var b = this.h[1];
+  var c = this.h[2];
+  var d = this.h[3];
+  var e = this.h[4];
+  var f = this.h[5];
+  var g = this.h[6];
+  var h = this.h[7];
+
+  assert(this.k.length === W.length);
+  for (var i = 0; i &#x3c; W.length; i++) {
+    var T1 = sum32_5(h, s1_256(e), ch32(e, f, g), this.k[i], W[i]);
+    var T2 = sum32(s0_256(a), maj32(a, b, c));
+    h = g;
+    g = f;
+    f = e;
+    e = sum32(d, T1);
+    d = c;
+    c = b;
+    b = a;
+    a = sum32(T1, T2);
+  }
+
+  this.h[0] = sum32(this.h[0], a);
+  this.h[1] = sum32(this.h[1], b);
+  this.h[2] = sum32(this.h[2], c);
+  this.h[3] = sum32(this.h[3], d);
+  this.h[4] = sum32(this.h[4], e);
+  this.h[5] = sum32(this.h[5], f);
+  this.h[6] = sum32(this.h[6], g);
+  this.h[7] = sum32(this.h[7], h);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curves.ed25519" id="apidoc.module.elliptic.curves.ed25519">module elliptic.curves.ed25519</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.ed25519.hash" id="apidoc.element.elliptic.curves.ed25519.hash">
+        function <span class="apidocSignatureSpan">elliptic.curves.ed25519.</span>hash
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SHA256() {
+  if (!(this instanceof SHA256))
+    return new SHA256();
+
+  BlockHash.call(this);
+  this.h = [ 0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
+             0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19 ];
+  this.k = sha256_K;
+  this.W = new Array(64);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curves.p192" id="apidoc.module.elliptic.curves.p192">module elliptic.curves.p192</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.p192.hash" id="apidoc.element.elliptic.curves.p192.hash">
+        function <span class="apidocSignatureSpan">elliptic.curves.p192.</span>hash
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SHA256() {
+  if (!(this instanceof SHA256))
+    return new SHA256();
+
+  BlockHash.call(this);
+  this.h = [ 0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
+             0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19 ];
+  this.k = sha256_K;
+  this.W = new Array(64);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curves.p224" id="apidoc.module.elliptic.curves.p224">module elliptic.curves.p224</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.p224.hash" id="apidoc.element.elliptic.curves.p224.hash">
+        function <span class="apidocSignatureSpan">elliptic.curves.p224.</span>hash
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SHA256() {
+  if (!(this instanceof SHA256))
+    return new SHA256();
+
+  BlockHash.call(this);
+  this.h = [ 0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
+             0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19 ];
+  this.k = sha256_K;
+  this.W = new Array(64);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curves.p256" id="apidoc.module.elliptic.curves.p256">module elliptic.curves.p256</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.p256.hash" id="apidoc.element.elliptic.curves.p256.hash">
+        function <span class="apidocSignatureSpan">elliptic.curves.p256.</span>hash
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SHA256() {
+  if (!(this instanceof SHA256))
+    return new SHA256();
+
+  BlockHash.call(this);
+  this.h = [ 0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
+             0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19 ];
+  this.k = sha256_K;
+  this.W = new Array(64);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curves.p384" id="apidoc.module.elliptic.curves.p384">module elliptic.curves.p384</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.p384.hash" id="apidoc.element.elliptic.curves.p384.hash">
+        function <span class="apidocSignatureSpan">elliptic.curves.p384.</span>hash
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SHA384() {
+  if (!(this instanceof SHA384))
+    return new SHA384();
+
+  SHA512.call(this);
+  this.h = [ 0xcbbb9d5d, 0xc1059ed8,
+             0x629a292a, 0x367cd507,
+             0x9159015a, 0x3070dd17,
+             0x152fecd8, 0xf70e5939,
+             0x67332667, 0xffc00b31,
+             0x8eb44a87, 0x68581511,
+             0xdb0c2e0d, 0x64f98fa7,
+             0x47b5481d, 0xbefa4fa4 ];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curves.p384.hash.prototype" id="apidoc.module.elliptic.curves.p384.hash.prototype">module elliptic.curves.p384.hash.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.p384.hash.prototype._digest" id="apidoc.element.elliptic.curves.p384.hash.prototype._digest">
+        function <span class="apidocSignatureSpan">elliptic.curves.p384.hash.prototype.</span>_digest
+        <span class="apidocSignatureSpan">(enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function digest(enc) {
+  if (enc === &#x27;hex&#x27;)
+    return utils.toHex32(this.h.slice(0, 12), &#x27;big&#x27;);
+  else
+    return utils.split32(this.h.slice(0, 12), &#x27;big&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curves.p521" id="apidoc.module.elliptic.curves.p521">module elliptic.curves.p521</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.p521.hash" id="apidoc.element.elliptic.curves.p521.hash">
+        function <span class="apidocSignatureSpan">elliptic.curves.p521.</span>hash
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SHA512() {
+  if (!(this instanceof SHA512))
+    return new SHA512();
+
+  BlockHash.call(this);
+  this.h = [ 0x6a09e667, 0xf3bcc908,
+             0xbb67ae85, 0x84caa73b,
+             0x3c6ef372, 0xfe94f82b,
+             0xa54ff53a, 0x5f1d36f1,
+             0x510e527f, 0xade682d1,
+             0x9b05688c, 0x2b3e6c1f,
+             0x1f83d9ab, 0xfb41bd6b,
+             0x5be0cd19, 0x137e2179 ];
+  this.k = sha512_K;
+  this.W = new Array(160);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curves.p521.hash.prototype" id="apidoc.module.elliptic.curves.p521.hash.prototype">module elliptic.curves.p521.hash.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.p521.hash.prototype._digest" id="apidoc.element.elliptic.curves.p521.hash.prototype._digest">
+        function <span class="apidocSignatureSpan">elliptic.curves.p521.hash.prototype.</span>_digest
+        <span class="apidocSignatureSpan">(enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function digest(enc) {
+  if (enc === &#x27;hex&#x27;)
+    return utils.toHex32(this.h, &#x27;big&#x27;);
+  else
+    return utils.split32(this.h, &#x27;big&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.p521.hash.prototype._prepareBlock" id="apidoc.element.elliptic.curves.p521.hash.prototype._prepareBlock">
+        function <span class="apidocSignatureSpan">elliptic.curves.p521.hash.prototype.</span>_prepareBlock
+        <span class="apidocSignatureSpan">(msg, start)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _prepareBlock(msg, start) {
+  var W = this.W;
+
+  // 32 x 32bit words
+  for (var i = 0; i &#x3c; 32; i++)
+    W[i] = msg[start + i];
+  for (; i &#x3c; W.length; i += 2) {
+    var c0_hi = g1_512_hi(W[i - 4], W[i - 3]);  // i - 2
+    var c0_lo = g1_512_lo(W[i - 4], W[i - 3]);
+    var c1_hi = W[i - 14];  // i - 7
+    var c1_lo = W[i - 13];
+    var c2_hi = g0_512_hi(W[i - 30], W[i - 29]);  // i - 15
+    var c2_lo = g0_512_lo(W[i - 30], W[i - 29]);
+    var c3_hi = W[i - 32];  // i - 16
+    var c3_lo = W[i - 31];
+
+    W[i] = sum64_4_hi(c0_hi, c0_lo,
+                      c1_hi, c1_lo,
+                      c2_hi, c2_lo,
+                      c3_hi, c3_lo);
+    W[i + 1] = sum64_4_lo(c0_hi, c0_lo,
+                          c1_hi, c1_lo,
+                          c2_hi, c2_lo,
+                          c3_hi, c3_lo);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.p521.hash.prototype._update" id="apidoc.element.elliptic.curves.p521.hash.prototype._update">
+        function <span class="apidocSignatureSpan">elliptic.curves.p521.hash.prototype.</span>_update
+        <span class="apidocSignatureSpan">(msg, start)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _update(msg, start) {
+  this._prepareBlock(msg, start);
+
+  var W = this.W;
+
+  var ah = this.h[0];
+  var al = this.h[1];
+  var bh = this.h[2];
+  var bl = this.h[3];
+  var ch = this.h[4];
+  var cl = this.h[5];
+  var dh = this.h[6];
+  var dl = this.h[7];
+  var eh = this.h[8];
+  var el = this.h[9];
+  var fh = this.h[10];
+  var fl = this.h[11];
+  var gh = this.h[12];
+  var gl = this.h[13];
+  var hh = this.h[14];
+  var hl = this.h[15];
+
+  assert(this.k.length === W.length);
+  for (var i = 0; i &#x3c; W.length; i += 2) {
+    var c0_hi = hh;
+    var c0_lo = hl;
+    var c1_hi = s1_512_hi(eh, el);
+    var c1_lo = s1_512_lo(eh, el);
+    var c2_hi = ch64_hi(eh, el, fh, fl, gh, gl);
+    var c2_lo = ch64_lo(eh, el, fh, fl, gh, gl);
+    var c3_hi = this.k[i];
+    var c3_lo = this.k[i + 1];
+    var c4_hi = W[i];
+    var c4_lo = W[i + 1];
+
+    var T1_hi = sum64_5_hi(c0_hi, c0_lo,
+                           c1_hi, c1_lo,
+                           c2_hi, c2_lo,
+                           c3_hi, c3_lo,
+                           c4_hi, c4_lo);
+    var T1_lo = sum64_5_lo(c0_hi, c0_lo,
+                           c1_hi, c1_lo,
+                           c2_hi, c2_lo,
+                           c3_hi, c3_lo,
+                           c4_hi, c4_lo);
+
+    var c0_hi = s0_512_hi(ah, al);
+    var c0_lo = s0_512_lo(ah, al);
+    var c1_hi = maj64_hi(ah, al, bh, bl, ch, cl);
+    var c1_lo = maj64_lo(ah, al, bh, bl, ch, cl);
+
+    var T2_hi = sum64_hi(c0_hi, c0_lo, c1_hi, c1_lo);
+    var T2_lo = sum64_lo(c0_hi, c0_lo, c1_hi, c1_lo);
+
+    hh = gh;
+    hl = gl;
+
+    gh = fh;
+    gl = fl;
+
+    fh = eh;
+    fl = el;
+
+    eh = sum64_hi(dh, dl, T1_hi, T1_lo);
+    el = sum64_lo(dl, dl, T1_hi, T1_lo);
+
+    dh = ch;
+    dl = cl;
+
+    ch = bh;
+    cl = bl;
+
+    bh = ah;
+    bl = al;
+
+    ah = sum64_hi(T1_hi, T1_lo, T2_hi, T2_lo);
+    al = sum64_lo(T1_hi, T1_lo, T2_hi, T2_lo);
+  }
+
+  sum64(this.h, 0, ah, al);
+  sum64(this.h, 2, bh, bl);
+  sum64(this.h, 4, ch, cl);
+  sum64(this.h, 6, dh, dl);
+  sum64(this.h, 8, eh, el);
+  sum64(this.h, 10, fh, fl);
+  sum64(this.h, 12, gh, gl);
+  sum64(this.h, 14, hh, hl);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.curves.secp256k1" id="apidoc.module.elliptic.curves.secp256k1">module elliptic.curves.secp256k1</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.curves.secp256k1.hash" id="apidoc.element.elliptic.curves.secp256k1.hash">
+        function <span class="apidocSignatureSpan">elliptic.curves.secp256k1.</span>hash
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SHA256() {
+  if (!(this instanceof SHA256))
+    return new SHA256();
+
+  BlockHash.call(this);
+  this.h = [ 0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
+             0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19 ];
+  this.k = sha256_K;
+  this.W = new Array(64);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.ec" id="apidoc.module.elliptic.ec">module elliptic.ec</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.ec.ec" id="apidoc.element.elliptic.ec.ec">
+        function <span class="apidocSignatureSpan">elliptic.</span>ec
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EC(options) {
+  if (!(this instanceof EC))
+    return new EC(options);
+
+  // Shortcut `elliptic.ec(curve-name)`
+  if (typeof options === &#x27;string&#x27;) {
+    assert(elliptic.curves.hasOwnProperty(options), &#x27;Unknown curve &#x27; + options);
+
+    options = elliptic.curves[options];
+  }
+
+  // Shortcut for `elliptic.ec(elliptic.curves.curveName)`
+  if (options instanceof elliptic.curves.PresetCurve)
+    options = { curve: options };
+
+  this.curve = options.curve.curve;
+  this.n = this.curve.n;
+  this.nh = this.n.ushrn(1);
+  this.g = this.curve.g;
+
+  // Point on curve
+  this.g = options.curve.g;
+  this.g.precompute(options.curve.n.bitLength() + 1);
+
+  // Hash for function for DRBG
+  this.hash = options.hash || options.curve.hash;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.ec.prototype" id="apidoc.module.elliptic.ec.prototype">module elliptic.ec.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.ec.prototype._truncateToN" id="apidoc.element.elliptic.ec.prototype._truncateToN">
+        function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>_truncateToN
+        <span class="apidocSignatureSpan">(msg, truncOnly)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function truncateToN(msg, truncOnly) {
+  var delta = msg.byteLength() * 8 - this.n.bitLength();
+  if (delta &#x3e; 0)
+    msg = msg.ushrn(delta);
+  if (!truncOnly &#x26;&#x26; msg.cmp(this.n) &#x3e;= 0)
+    return msg.sub(this.n);
+  else
+    return msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.ec.prototype.genKeyPair" id="apidoc.element.elliptic.ec.prototype.genKeyPair">
+        function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>genKeyPair
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function genKeyPair(options) {
+  if (!options)
+    options = {};
+
+  // Instantiate Hmac_DRBG
+  var drbg = new HmacDRBG({
+    hash: this.hash,
+    pers: options.pers,
+    persEnc: options.persEnc || &#x27;utf8&#x27;,
+    entropy: options.entropy || elliptic.rand(this.hash.hmacStrength),
+    entropyEnc: options.entropy &#x26;&#x26; options.entropyEnc || &#x27;utf8&#x27;,
+    nonce: this.n.toArray()
+  });
+
+  var bytes = this.n.byteLength();
+  var ns2 = this.n.sub(new BN(2));
+  do {
+    var priv = new BN(drbg.generate(bytes));
+    if (priv.cmp(ns2) &#x3e; 0)
+      continue;
+
+    priv.iaddn(1);
+    return this.keyFromPrivate(priv);
+  } while (true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var EC = require(&#x27;elliptic&#x27;).ec;
+
+// Create and initialize EC context
+// (better do it once and reuse it)
+var ec = new EC(&#x27;secp256k1&#x27;);
+
+// Generate keys
+var key = ec.<span class="apidocCodeKeywordSpan">genKeyPair</span>();
+
+// Sign message (must be an array, or it&#x27;ll be treated as a hex sequence)
+var msg = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+var signature = key.sign(msg);
+
+// Export DER encoded signature in Array
+var derSign = signature.toDER();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.ec.prototype.getKeyRecoveryParam" id="apidoc.element.elliptic.ec.prototype.getKeyRecoveryParam">
+        function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>getKeyRecoveryParam
+        <span class="apidocSignatureSpan">(e, signature, Q, enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getKeyRecoveryParam = function (e, signature, Q, enc) {
+  signature = new Signature(signature, enc);
+  if (signature.recoveryParam !== null)
+    return signature.recoveryParam;
+
+  for (var i = 0; i &#x3c; 4; i++) {
+    var Qprime;
+    try {
+      Qprime = this.recoverPubKey(e, signature, i);
+    } catch (e) {
+      continue;
+    }
+
+    if (Qprime.eq(Q))
+      return i;
+  }
+  throw new Error(&#x27;Unable to find valid recovery factor&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.ec.prototype.keyFromPrivate" id="apidoc.element.elliptic.ec.prototype.keyFromPrivate">
+        function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>keyFromPrivate
+        <span class="apidocSignatureSpan">(priv, enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function keyFromPrivate(priv, enc) {
+  return KeyPair.fromPrivate(this, priv, enc);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.ec.prototype.keyFromPublic" id="apidoc.element.elliptic.ec.prototype.keyFromPublic">
+        function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>keyFromPublic
+        <span class="apidocSignatureSpan">(pub, enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function keyFromPublic(pub, enc) {
+  return KeyPair.fromPublic(this, pub, enc);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// 3) object with two hex-string properties (r and s)
+
+var signature = &#x27;b102ac...&#x27;; // case 1
+var signature = new Buffer(&#x27;...&#x27;); // case 2
+var signature = { r: &#x27;b1fc...&#x27;, s: &#x27;9c42...&#x27; }; // case 3
+
+// Import public key
+var key = ec.<span class="apidocCodeKeywordSpan">keyFromPublic</span>(pub, &#x27;hex&#x27;);
+
+// Verify signature
+console.log(key.verify(msg, signature));
+```
+
+### EdDSA
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.ec.prototype.keyPair" id="apidoc.element.elliptic.ec.prototype.keyPair">
+        function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>keyPair
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function keyPair(options) {
+  return new KeyPair(this, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.ec.prototype.recoverPubKey" id="apidoc.element.elliptic.ec.prototype.recoverPubKey">
+        function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>recoverPubKey
+        <span class="apidocSignatureSpan">(msg, signature, j, enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">recoverPubKey = function (msg, signature, j, enc) {
+  assert((3 &#x26; j) === j, &#x27;The recovery param is more than two bits&#x27;);
+  signature = new Signature(signature, enc);
+
+  var n = this.n;
+  var e = new BN(msg);
+  var r = signature.r;
+  var s = signature.s;
+
+  // A set LSB signifies that the y-coordinate is odd
+  var isYOdd = j &#x26; 1;
+  var isSecondKey = j &#x3e;&#x3e; 1;
+  if (r.cmp(this.curve.p.umod(this.curve.n)) &#x3e;= 0 &#x26;&#x26; isSecondKey)
+    throw new Error(&#x27;Unable to find sencond key candinate&#x27;);
+
+  // 1.1. Let x = r + jn.
+  if (isSecondKey)
+    r = this.curve.pointFromX(r.add(this.curve.n), isYOdd);
+  else
+    r = this.curve.pointFromX(r, isYOdd);
+
+  var rInv = signature.r.invm(n);
+  var s1 = n.sub(e).mul(rInv).umod(n);
+  var s2 = s.mul(rInv).umod(n);
+
+  // 1.6.1 Compute Q = r^-1 (sR -  eG)
+  //               Q = r^-1 (sR + -eG)
+  return this.g.mulAdd(s1, r, s2);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.ec.prototype.sign" id="apidoc.element.elliptic.ec.prototype.sign">
+        function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>sign
+        <span class="apidocSignatureSpan">(msg, key, enc, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sign(msg, key, enc, options) {
+  if (typeof enc === &#x27;object&#x27;) {
+    options = enc;
+    enc = null;
+  }
+  if (!options)
+    options = {};
+
+  key = this.keyFromPrivate(key, enc);
+  msg = this._truncateToN(new BN(msg, 16));
+
+  // Zero-extend key to provide enough entropy
+  var bytes = this.n.byteLength();
+  var bkey = key.getPrivate().toArray(&#x27;be&#x27;, bytes);
+
+  // Zero-extend nonce to have the same byte size as N
+  var nonce = msg.toArray(&#x27;be&#x27;, bytes);
+
+  // Instantiate Hmac_DRBG
+  var drbg = new HmacDRBG({
+    hash: this.hash,
+    entropy: bkey,
+    nonce: nonce,
+    pers: options.pers,
+    persEnc: options.persEnc || &#x27;utf8&#x27;
+  });
+
+  // Number of bytes to generate
+  var ns1 = this.n.sub(new BN(1));
+
+  for (var iter = 0; true; iter++) {
+    var k = options.k ?
+        options.k(iter) :
+        new BN(drbg.generate(this.n.byteLength()));
+    k = this._truncateToN(k, true);
+    if (k.cmpn(1) &#x3c;= 0 || k.cmp(ns1) &#x3e;= 0)
+      continue;
+
+    var kp = this.g.mul(k);
+    if (kp.isInfinity())
+      continue;
+
+    var kpX = kp.getX();
+    var r = kpX.umod(this.n);
+    if (r.cmpn(0) === 0)
+      continue;
+
+    var s = k.invm(this.n).mul(r.mul(key.getPrivate()).iadd(msg));
+    s = s.umod(this.n);
+    if (s.cmpn(0) === 0)
+      continue;
+
+    var recoveryParam = (kp.getY().isOdd() ? 1 : 0) |
+                        (kpX.cmp(r) !== 0 ? 2 : 0);
+
+    // Use complement of `s`, if it is &#x3e; `n / 2`
+    if (options.canonical &#x26;&#x26; s.cmp(this.nh) &#x3e; 0) {
+      s = this.n.sub(s);
+      recoveryParam ^= 1;
+    }
+
+    return new Signature({ r: r, s: s, recoveryParam: recoveryParam });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var ec = new EC(&#x27;secp256k1&#x27;);
+
+// Generate keys
+var key = ec.genKeyPair();
+
+// Sign message (must be an array, or it&#x27;ll be treated as a hex sequence)
+var msg = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+var signature = key.<span class="apidocCodeKeywordSpan">sign</span>(msg);
+
+// Export DER encoded signature in Array
+var derSign = signature.toDER();
+
+// Verify signature
+console.log(key.verify(msg, derSign));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.ec.prototype.verify" id="apidoc.element.elliptic.ec.prototype.verify">
+        function <span class="apidocSignatureSpan">elliptic.ec.prototype.</span>verify
+        <span class="apidocSignatureSpan">(msg, signature, key, enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function verify(msg, signature, key, enc) {
+  msg = this._truncateToN(new BN(msg, 16));
+  key = this.keyFromPublic(key, enc);
+  signature = new Signature(signature, &#x27;hex&#x27;);
+
+  // Perform primitive values validation
+  var r = signature.r;
+  var s = signature.s;
+  if (r.cmpn(1) &#x3c; 0 || r.cmp(this.n) &#x3e;= 0)
+    return false;
+  if (s.cmpn(1) &#x3c; 0 || s.cmp(this.n) &#x3e;= 0)
+    return false;
+
+  // Validate signature
+  var sinv = s.invm(this.n);
+  var u1 = sinv.mul(msg).umod(this.n);
+  var u2 = sinv.mul(r).umod(this.n);
+
+  if (!this.curve._maxwellTrick) {
+    var p = this.g.mulAdd(u1, key.getPublic(), u2);
+    if (p.isInfinity())
+      return false;
+
+    return p.getX().umod(this.n).cmp(r) === 0;
+  }
+
+  // NOTE: Greg Maxwell&#x27;s trick, inspired by:
+  // https://git.io/vad3K
+
+  var p = this.g.jmulAdd(u1, key.getPublic(), u2);
+  if (p.isInfinity())
+    return false;
+
+  // Compare `p.x` of Jacobian point with `r`,
+  // this will do `p.x == r * p.z^2` instead of multiplying `p.x` by the
+  // inverse of `p.z^2`
+  return p.eqXToP(r);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var msg = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+var signature = key.sign(msg);
+
+// Export DER encoded signature in Array
+var derSign = signature.toDER();
+
+// Verify signature
+console.log(key.<span class="apidocCodeKeywordSpan">verify</span>(msg, derSign));
+
+// CHECK WITH NO PRIVATE KEY
+
+// Public key as &#x27;04 + x + y&#x27;
+var pub = &#x27;04bb1fa3...&#x27;;
+
+// Signature MUST be either:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.eddsa" id="apidoc.module.elliptic.eddsa">module elliptic.eddsa</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa.eddsa" id="apidoc.element.elliptic.eddsa.eddsa">
+        function <span class="apidocSignatureSpan">elliptic.</span>eddsa
+        <span class="apidocSignatureSpan">(curve)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EDDSA(curve) {
+  assert(curve === &#x27;ed25519&#x27;, &#x27;only tested with ed25519 so far&#x27;);
+
+  if (!(this instanceof EDDSA))
+    return new EDDSA(curve);
+
+  var curve = elliptic.curves[curve].curve;
+  this.curve = curve;
+  this.g = curve.g;
+  this.g.precompute(curve.n.bitLength() + 1);
+
+  this.pointClass = curve.point().constructor;
+  this.encodingLength = Math.ceil(curve.n.bitLength() / 8);
+  this.hash = hash.sha512;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.eddsa.prototype" id="apidoc.module.elliptic.eddsa.prototype">module elliptic.eddsa.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa.prototype.decodeInt" id="apidoc.element.elliptic.eddsa.prototype.decodeInt">
+        function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>decodeInt
+        <span class="apidocSignatureSpan">(bytes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function decodeInt(bytes) {
+  return utils.intFromLE(bytes);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa.prototype.decodePoint" id="apidoc.element.elliptic.eddsa.prototype.decodePoint">
+        function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>decodePoint
+        <span class="apidocSignatureSpan">(bytes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function decodePoint(bytes) {
+  bytes = utils.parseBytes(bytes);
+
+  var lastIx = bytes.length - 1;
+  var normed = bytes.slice(0, lastIx).concat(bytes[lastIx] &#x26; ~0x80);
+  var xIsOdd = (bytes[lastIx] &#x26; 0x80) !== 0;
+
+  var y = utils.intFromLE(normed);
+  return this.curve.pointFromY(y, xIsOdd);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa.prototype.encodeInt" id="apidoc.element.elliptic.eddsa.prototype.encodeInt">
+        function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>encodeInt
+        <span class="apidocSignatureSpan">(num)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function encodeInt(num) {
+  return num.toArray(&#x27;le&#x27;, this.encodingLength);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa.prototype.encodePoint" id="apidoc.element.elliptic.eddsa.prototype.encodePoint">
+        function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>encodePoint
+        <span class="apidocSignatureSpan">(point)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function encodePoint(point) {
+  var enc = point.getY().toArray(&#x27;le&#x27;, this.encodingLength);
+  enc[this.encodingLength - 1] |= point.getX().isOdd() ? 0x80 : 0;
+  return enc;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa.prototype.hashInt" id="apidoc.element.elliptic.eddsa.prototype.hashInt">
+        function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>hashInt
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function hashInt() {
+  var hash = this.hash();
+  for (var i = 0; i &#x3c; arguments.length; i++)
+    hash.update(arguments[i]);
+  return utils.intFromLE(hash.digest()).umod(this.curve.n);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa.prototype.isPoint" id="apidoc.element.elliptic.eddsa.prototype.isPoint">
+        function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>isPoint
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isPoint(val) {
+  return val instanceof this.pointClass;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa.prototype.keyFromPublic" id="apidoc.element.elliptic.eddsa.prototype.keyFromPublic">
+        function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>keyFromPublic
+        <span class="apidocSignatureSpan">(pub)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function keyFromPublic(pub) {
+  return KeyPair.fromPublic(this, pub);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// 3) object with two hex-string properties (r and s)
+
+var signature = &#x27;b102ac...&#x27;; // case 1
+var signature = new Buffer(&#x27;...&#x27;); // case 2
+var signature = { r: &#x27;b1fc...&#x27;, s: &#x27;9c42...&#x27; }; // case 3
+
+// Import public key
+var key = ec.<span class="apidocCodeKeywordSpan">keyFromPublic</span>(pub, &#x27;hex&#x27;);
+
+// Verify signature
+console.log(key.verify(msg, signature));
+```
+
+### EdDSA
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa.prototype.keyFromSecret" id="apidoc.element.elliptic.eddsa.prototype.keyFromSecret">
+        function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>keyFromSecret
+        <span class="apidocSignatureSpan">(secret)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function keyFromSecret(secret) {
+  return KeyPair.fromSecret(this, secret);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var EdDSA = require(&#x27;elliptic&#x27;).eddsa;
+
+// Create and initialize EdDSA context
+// (better do it once and reuse it)
+var ec = new EdDSA(&#x27;ed25519&#x27;);
+
+// Create key pair from secret
+var key = ec.<span class="apidocCodeKeywordSpan">keyFromSecret</span>(&#x27;693e3c...&#x27;); // hex string, array or Buffer
+
+// Sign message (must be an array, or it&#x27;ll be treated as a hex sequence)
+var msg = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+var signature = key.sign(msg).toHex();
+
+// Verify signature
+console.log(key.verify(msg, signature));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa.prototype.makeSignature" id="apidoc.element.elliptic.eddsa.prototype.makeSignature">
+        function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>makeSignature
+        <span class="apidocSignatureSpan">(sig)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function makeSignature(sig) {
+  if (sig instanceof Signature)
+    return sig;
+  return new Signature(this, sig);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa.prototype.sign" id="apidoc.element.elliptic.eddsa.prototype.sign">
+        function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>sign
+        <span class="apidocSignatureSpan">(message, secret)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sign(message, secret) {
+  message = parseBytes(message);
+  var key = this.keyFromSecret(secret);
+  var r = this.hashInt(key.messagePrefix(), message);
+  var R = this.g.mul(r);
+  var Rencoded = this.encodePoint(R);
+  var s_ = this.hashInt(Rencoded, key.pubBytes(), message)
+               .mul(key.priv());
+  var S = r.add(s_).umod(this.curve.n);
+  return this.makeSignature({ R: R, S: S, Rencoded: Rencoded });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var ec = new EC(&#x27;secp256k1&#x27;);
+
+// Generate keys
+var key = ec.genKeyPair();
+
+// Sign message (must be an array, or it&#x27;ll be treated as a hex sequence)
+var msg = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+var signature = key.<span class="apidocCodeKeywordSpan">sign</span>(msg);
+
+// Export DER encoded signature in Array
+var derSign = signature.toDER();
+
+// Verify signature
+console.log(key.verify(msg, derSign));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.eddsa.prototype.verify" id="apidoc.element.elliptic.eddsa.prototype.verify">
+        function <span class="apidocSignatureSpan">elliptic.eddsa.prototype.</span>verify
+        <span class="apidocSignatureSpan">(message, sig, pub)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function verify(message, sig, pub) {
+  message = parseBytes(message);
+  sig = this.makeSignature(sig);
+  var key = this.keyFromPublic(pub);
+  var h = this.hashInt(sig.Rencoded(), key.pubBytes(), message);
+  var SG = this.g.mul(sig.S());
+  var RplusAh = sig.R().add(key.pub().mul(h));
+  return RplusAh.eq(SG);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var msg = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+var signature = key.sign(msg);
+
+// Export DER encoded signature in Array
+var derSign = signature.toDER();
+
+// Verify signature
+console.log(key.<span class="apidocCodeKeywordSpan">verify</span>(msg, derSign));
+
+// CHECK WITH NO PRIVATE KEY
+
+// Public key as &#x27;04 + x + y&#x27;
+var pub = &#x27;04bb1fa3...&#x27;;
+
+// Signature MUST be either:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.rand" id="apidoc.module.elliptic.rand">module elliptic.rand</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.rand.rand" id="apidoc.element.elliptic.rand.rand">
+        function <span class="apidocSignatureSpan">elliptic.</span>rand
+        <span class="apidocSignatureSpan">(len)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function rand(len) {
+  if (!r)
+    r = new Rand(null);
+
+  return r.generate(len);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.rand.Rand" id="apidoc.element.elliptic.rand.Rand">
+        function <span class="apidocSignatureSpan">elliptic.rand.</span>Rand
+        <span class="apidocSignatureSpan">(rand)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Rand(rand) {
+  this.rand = rand;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.rand.Rand" id="apidoc.module.elliptic.rand.Rand">module elliptic.rand.Rand</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.rand.Rand.Rand" id="apidoc.element.elliptic.rand.Rand.Rand">
+        function <span class="apidocSignatureSpan">elliptic.rand.</span>Rand
+        <span class="apidocSignatureSpan">(rand)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Rand(rand) {
+  this.rand = rand;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.rand.Rand.prototype" id="apidoc.module.elliptic.rand.Rand.prototype">module elliptic.rand.Rand.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.rand.Rand.prototype._rand" id="apidoc.element.elliptic.rand.Rand.prototype._rand">
+        function <span class="apidocSignatureSpan">elliptic.rand.Rand.prototype.</span>_rand
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _rand(n) {
+  return crypto.randomBytes(n);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.rand.Rand.prototype.generate" id="apidoc.element.elliptic.rand.Rand.prototype.generate">
+        function <span class="apidocSignatureSpan">elliptic.rand.Rand.prototype.</span>generate
+        <span class="apidocSignatureSpan">(len)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function generate(len) {
+  return this._rand(len);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.utils" id="apidoc.module.elliptic.utils">module elliptic.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.assert" id="apidoc.element.elliptic.utils.assert">
+        function <span class="apidocSignatureSpan">elliptic.utils.</span>assert
+        <span class="apidocSignatureSpan">(val, msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function assert(val, msg) {
+  if (!val)
+    throw new Error(msg || &#x27;Assertion failed&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.cachedProperty" id="apidoc.element.elliptic.utils.cachedProperty">
+        function <span class="apidocSignatureSpan">elliptic.utils.</span>cachedProperty
+        <span class="apidocSignatureSpan">(obj, name, computer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function cachedProperty(obj, name, computer) {
+  var key = &#x27;_&#x27; + name;
+  obj.prototype[name] = function cachedProperty() {
+    return this[key] !== undefined ? this[key] :
+           this[key] = computer.call(this);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.encode" id="apidoc.element.elliptic.utils.encode">
+        function <span class="apidocSignatureSpan">elliptic.utils.</span>encode
+        <span class="apidocSignatureSpan">(arr, enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function encode(arr, enc) {
+  if (enc === &#x27;hex&#x27;)
+    return toHex(arr);
+  else
+    return arr;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.getJSF" id="apidoc.element.elliptic.utils.getJSF">
+        function <span class="apidocSignatureSpan">elliptic.utils.</span>getJSF
+        <span class="apidocSignatureSpan">(k1, k2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getJSF(k1, k2) {
+  var jsf = [
+    [],
+    []
+  ];
+
+  k1 = k1.clone();
+  k2 = k2.clone();
+  var d1 = 0;
+  var d2 = 0;
+  while (k1.cmpn(-d1) &#x3e; 0 || k2.cmpn(-d2) &#x3e; 0) {
+
+    // First phase
+    var m14 = (k1.andln(3) + d1) &#x26; 3;
+    var m24 = (k2.andln(3) + d2) &#x26; 3;
+    if (m14 === 3)
+      m14 = -1;
+    if (m24 === 3)
+      m24 = -1;
+    var u1;
+    if ((m14 &#x26; 1) === 0) {
+      u1 = 0;
+    } else {
+      var m8 = (k1.andln(7) + d1) &#x26; 7;
+      if ((m8 === 3 || m8 === 5) &#x26;&#x26; m24 === 2)
+        u1 = -m14;
+      else
+        u1 = m14;
+    }
+    jsf[0].push(u1);
+
+    var u2;
+    if ((m24 &#x26; 1) === 0) {
+      u2 = 0;
+    } else {
+      var m8 = (k2.andln(7) + d2) &#x26; 7;
+      if ((m8 === 3 || m8 === 5) &#x26;&#x26; m14 === 2)
+        u2 = -m24;
+      else
+        u2 = m24;
+    }
+    jsf[1].push(u2);
+
+    // Second phase
+    if (2 * d1 === u1 + 1)
+      d1 = 1 - d1;
+    if (2 * d2 === u2 + 1)
+      d2 = 1 - d2;
+    k1.iushrn(1);
+    k2.iushrn(1);
+  }
+
+  return jsf;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.getNAF" id="apidoc.element.elliptic.utils.getNAF">
+        function <span class="apidocSignatureSpan">elliptic.utils.</span>getNAF
+        <span class="apidocSignatureSpan">(num, w)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getNAF(num, w) {
+  var naf = [];
+  var ws = 1 &#x3c;&#x3c; (w + 1);
+  var k = num.clone();
+  while (k.cmpn(1) &#x3e;= 0) {
+    var z;
+    if (k.isOdd()) {
+      var mod = k.andln(ws - 1);
+      if (mod &#x3e; (ws &#x3e;&#x3e; 1) - 1)
+        z = (ws &#x3e;&#x3e; 1) - mod;
+      else
+        z = mod;
+      k.isubn(z);
+    } else {
+      z = 0;
+    }
+    naf.push(z);
+
+    // Optimization, shift by word if possible
+    var shift = (k.cmpn(0) !== 0 &#x26;&#x26; k.andln(ws - 1) === 0) ? (w + 1) : 1;
+    for (var i = 1; i &#x3c; shift; i++)
+      naf.push(0);
+    k.iushrn(shift);
+  }
+
+  return naf;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.intFromLE" id="apidoc.element.elliptic.utils.intFromLE">
+        function <span class="apidocSignatureSpan">elliptic.utils.</span>intFromLE
+        <span class="apidocSignatureSpan">(bytes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function intFromLE(bytes) {
+  return new BN(bytes, &#x27;hex&#x27;, &#x27;le&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.parseBytes" id="apidoc.element.elliptic.utils.parseBytes">
+        function <span class="apidocSignatureSpan">elliptic.utils.</span>parseBytes
+        <span class="apidocSignatureSpan">(bytes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseBytes(bytes) {
+  return typeof bytes === &#x27;string&#x27; ? utils.toArray(bytes, &#x27;hex&#x27;) :
+                                     bytes;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.toArray" id="apidoc.element.elliptic.utils.toArray">
+        function <span class="apidocSignatureSpan">elliptic.utils.</span>toArray
+        <span class="apidocSignatureSpan">(msg, enc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toArray(msg, enc) {
+  if (Array.isArray(msg))
+    return msg.slice();
+  if (!msg)
+    return [];
+  var res = [];
+  if (typeof msg !== &#x27;string&#x27;) {
+    for (var i = 0; i &#x3c; msg.length; i++)
+      res[i] = msg[i] | 0;
+    return res;
+  }
+  if (enc === &#x27;hex&#x27;) {
+    msg = msg.replace(/[^a-z0-9]+/ig, &#x27;&#x27;);
+    if (msg.length % 2 !== 0)
+      msg = &#x27;0&#x27; + msg;
+    for (var i = 0; i &#x3c; msg.length; i += 2)
+      res.push(parseInt(msg[i] + msg[i + 1], 16));
+  } else {
+    for (var i = 0; i &#x3c; msg.length; i++) {
+      var c = msg.charCodeAt(i);
+      var hi = c &#x3e;&#x3e; 8;
+      var lo = c &#x26; 0xff;
+      if (hi)
+        res.push(hi, lo);
+      else
+        res.push(lo);
+    }
+  }
+  return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.toHex" id="apidoc.element.elliptic.utils.toHex">
+        function <span class="apidocSignatureSpan">elliptic.utils.</span>toHex
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toHex(msg) {
+  var res = &#x27;&#x27;;
+  for (var i = 0; i &#x3c; msg.length; i++)
+    res += zero2(msg[i].toString(16));
+  return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var ec = new EdDSA(&#x27;ed25519&#x27;);
+
+// Create key pair from secret
+var key = ec.keyFromSecret(&#x27;693e3c...&#x27;); // hex string, array or Buffer
+
+// Sign message (must be an array, or it&#x27;ll be treated as a hex sequence)
+var msg = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+var signature = key.sign(msg).<span class="apidocCodeKeywordSpan">toHex</span>();
+
+// Verify signature
+console.log(key.verify(msg, signature));
+
+// CHECK WITH NO PRIVATE KEY
+
+// Import public key
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.zero2" id="apidoc.element.elliptic.utils.zero2">
+        function <span class="apidocSignatureSpan">elliptic.utils.</span>zero2
+        <span class="apidocSignatureSpan">(word)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function zero2(word) {
+  if (word.length === 1)
+    return &#x27;0&#x27; + word;
+  else
+    return word;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.elliptic.utils.assert" id="apidoc.module.elliptic.utils.assert">module elliptic.utils.assert</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.assert.assert" id="apidoc.element.elliptic.utils.assert.assert">
+        function <span class="apidocSignatureSpan">elliptic.utils.</span>assert
+        <span class="apidocSignatureSpan">(val, msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function assert(val, msg) {
+  if (!val)
+    throw new Error(msg || &#x27;Assertion failed&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.elliptic.utils.assert.equal" id="apidoc.element.elliptic.utils.assert.equal">
+        function <span class="apidocSignatureSpan">elliptic.utils.assert.</span>equal
+        <span class="apidocSignatureSpan">(l, r, msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function assertEqual(l, r, msg) {
+  if (l != r)
+    throw new Error(msg || (&#x27;Assertion failed: &#x27; + l + &#x27; != &#x27; + r));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
