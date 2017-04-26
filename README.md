@@ -1,6 +1,6 @@
 # npmdoc-elliptic
 
-#### api documentation for  [elliptic (v6.4.0)](https://github.com/indutny/elliptic)  [![npm package](https://img.shields.io/npm/v/npmdoc-elliptic.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-elliptic) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-elliptic.svg)](https://travis-ci.org/npmdoc/node-npmdoc-elliptic)
+#### basic api documentation for  [elliptic (v6.4.0)](https://github.com/indutny/elliptic)  [![npm package](https://img.shields.io/npm/v/npmdoc-elliptic.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-elliptic) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-elliptic.svg)](https://travis-ci.org/npmdoc/node-npmdoc-elliptic)
 
 #### EC cryptography
 
@@ -90,7 +90,8 @@
         "unit": "istanbul test _mocha --reporter=spec test/index.js",
         "version": "grunt dist && git add dist/"
     },
-    "version": "6.4.0"
+    "version": "6.4.0",
+    "bin": {}
 }
 ```
 
